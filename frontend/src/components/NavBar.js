@@ -60,14 +60,14 @@ const NavBar = () => {
   const loggedInIcons = (
     <>
       <NavLink className={styles.NavLink} to="/" onClick={confirmSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i className="fas fa-sign-out-alt"></i>Logga ut
       </NavLink>
       <NavLink
         to="/tickets"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa-regular fa-envelope"></i>Contact
+        <i className="fa-regular fa-envelope"></i>Kontakt
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
@@ -90,14 +90,14 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-sign-in-alt"></i>Sign In
+        <i className="fas fa-sign-in-alt"></i>Logga in
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign Up
+        <i className="fas fa-user-plus"></i>Skapa konto
       </NavLink>
     </>
   );
@@ -121,7 +121,7 @@ const NavBar = () => {
         <NavLink to="/">
           <Navbar.Brand>
             <img className={styles.img} src={logo} alt="logo" height="45" />
-            <span className={styles.BrandText}>Equestrians Together</span>
+            <span className={styles.BrandText}>Starhög Gård</span>
           </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle
@@ -137,7 +137,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               exact
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home"></i>Hem
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
@@ -147,18 +147,18 @@ const NavBar = () => {
           onHide={() => setShowConfirmation(false)}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Sign out</Modal.Title>
+            <Modal.Title>Logga ut</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Are you sure you want to sign out?</Modal.Body>
+          <Modal.Body>Är du säker på att du vill logga ut?</Modal.Body>
           <Modal.Footer>
             <Button
               variant="secondary"
               onClick={() => setShowConfirmation(false)}
             >
-              Cancel
+              Avbryt
             </Button>
             <Button variant="danger" onClick={handleSignOut}>
-              Sign out
+              Logga ut
             </Button>
           </Modal.Footer>
         </Modal>

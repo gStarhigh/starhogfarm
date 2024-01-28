@@ -111,15 +111,6 @@ MIDDLEWARE = [
 
 CLIENT_ORIGIN = os.environ.get('CLIENT_ORIGIN')
 
-# Kontrollera om CLIENT_ORIGIN är inställt
-if CLIENT_ORIGIN:
-    # Om CLIENT_ORIGIN är inställt, konvertera det till en lista
-    # Om det redan är en lista, behåll det som det är
-    CORS_ALLOWED_ORIGINS = [CLIENT_ORIGIN]
-else:
-    # Om CLIENT_ORIGIN inte är inställt, sätt CORS_ALLOWED_ORIGINS till en tom lista
-    CORS_ALLOWED_ORIGINS = []
-
 CORS_ALLOW_CREDENTIALS = True
 
 
@@ -156,7 +147,7 @@ if 'DEV' in os.environ:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.config()
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 
 

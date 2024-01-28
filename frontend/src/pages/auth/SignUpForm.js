@@ -23,6 +23,8 @@ import axios from "axios";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
+    firstName: "",
+    lastName: "",
     password1: "",
     password2: "",
   });
@@ -33,7 +35,7 @@ const SignUpForm = () => {
   const history = useHistory();
 
   /* Stores the username and passwords */
-  const { username, password1, password2 } = signUpData;
+  const { username, firstName, lastName, password1, password2 } = signUpData;
 
   /* Handle changes to the inputs */
   const handleChange = (event) => {
@@ -69,14 +71,14 @@ const SignUpForm = () => {
       </Col>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${styles.Content} p-4 `}>
-          <h1 className={styles.Header}>Sign up</h1>
+          <h1 className={styles.Header}>Skapa Konto</h1>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="username">
-              <Form.Label>Username</Form.Label>
+          <Form.Group controlId="username">
+              <Form.Label>Användarnamn*</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="text"
-                placeholder="Enter Username"
+                placeholder="Användarnamn"
                 name="username"
                 value={username}
                 onChange={handleChange}
@@ -88,8 +90,42 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-            <Form.Group controlId="Password1">
-              <Form.Label>Password</Form.Label>
+            <Form.Group controlId="firstName">
+              <Form.Label>Förnamn</Form.Label>
+              <Form.Control
+                className={styles.Input}
+                type="text"
+                placeholder="Förnamn"
+                name="firstName"
+                value={firstName}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.firstName?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+              <Form.Group controlId="lastName">
+              <Form.Label>Efternamn</Form.Label>
+              <Form.Control
+                className={styles.Input}
+                type="text"
+                placeholder="Efternamn"
+                name="lastName"
+                value={lastName}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.lastName?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group controlId="password1">
+              <Form.Label>Password*</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
@@ -104,8 +140,8 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-            <Form.Group controlId="Password2">
-              <Form.Label>Confirm Password</Form.Label>
+            <Form.Group controlId="password2">
+              <Form.Label>Confirm Password*</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
@@ -124,7 +160,7 @@ const SignUpForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
             >
-              Sign Up
+              Skapa konto
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
@@ -134,7 +170,7 @@ const SignUpForm = () => {
           </Form>
           <div className={`mt-3 ${styles.Content}`}>
             <Link className={styles.Link} to="/signin">
-              Already have an account? <span>Sign in</span>
+              Har du redan ett konto? <span>Logga in</span>
             </Link>
           </div>
         </Container>

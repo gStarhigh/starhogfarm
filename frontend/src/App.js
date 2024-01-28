@@ -5,8 +5,11 @@ import { Route, Switch } from "react-router-dom";
 // React Bootstrap imports
 import Container from "react-bootstrap/Container";
 
+
 // My own imports
 import styles from "./App.module.css";
+
+
 import NavBar from "./components/NavBar";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
@@ -15,6 +18,9 @@ import PrivateRoute from "./pages/auth/PrivateRoute";
 import CreateInformation from "./pages/information/CreateInformation";
 import EditInformation from "./pages/information/EditInformation";
 import { AlertProvider } from "./contexts/AlertContext";
+import HomePage from "../src/pages/HomePage";
+import Footer from "./components/Footer";
+import AboutPage from "./pages/AboutPage";
 
 
 export const CurrentUserContext = createContext();
@@ -30,6 +36,8 @@ function App() {
           <Switch>
             <Route exact path="/signin" render={() => <SignInForm />} />
             <Route exact path="/signup" render={() => <SignUpForm />} />
+            <Route exact path="/" render={() => <HomePage />} />
+            <Route exact path="/about" render={() => <AboutPage />} />
 
 
             <PrivateRoute
@@ -44,6 +52,7 @@ function App() {
             />
           </Switch>
         </Container>
+        <Footer/>
       </div>
     </AlertProvider>
   );
