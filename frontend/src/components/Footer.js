@@ -11,7 +11,7 @@ function Footer() {
         <Nav>
           <div className={styles.Navlinks}>
           <Nav.Link to={"Events"} as={NavLink} className={styles.Navlinks}>
-              Event
+              Evenemang
             </Nav.Link>
             <Nav.Link to={"Lessons"} as={NavLink} className={styles.Navlinks}>
               Lektioner

@@ -8,12 +8,13 @@ import styles from "../styles/Home.module.css";
 import { News } from "../components/News";
 import { Instagram } from "../components/Instagram.js";
 import { Stable } from "../components/Stable";
-import { Events } from "../components/Events";
+import Events from "../components/Events";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { faHorseHead } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 
 function HomePage() {
@@ -66,11 +67,13 @@ function HomePage() {
               </div>
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
-              <div className="d-flex flex-column align-items-center text-center">
-              <FontAwesomeIcon icon={faCalendarDays} className={styles.FontA} />
-                <h2 className="text-2xl font-bold">Events</h2>
-                <p className="text-muted">Läs mer om våra kommande event!</p>
-              </div>
+             <div className="d-flex flex-column align-items-center text-center">
+                <Link to="/events" className={styles.Link}>
+                  <FontAwesomeIcon icon={faCalendarDays} className={styles.FontA} />
+                  <h2 className="text-2xl font-bold">Evenemang</h2>
+                  <p className="text-muted">Läs mer om våra kommande event!</p>
+                </Link>
+             </div>
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">

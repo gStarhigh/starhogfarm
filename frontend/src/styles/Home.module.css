@@ -75,6 +75,17 @@
   .Padding {
     padding: 0;
   }
+
+  .Link {
+    text-decoration: none;
+    color: black;
+    
+  }
+
+  .Link:hover {
+    text-decoration: none;
+    color: black;
+  }
   
   @media only screen and (max-width: 768px) {
     .HeroText {

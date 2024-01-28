@@ -1,0 +1,49 @@
+.AdultEvent1 {
+    margin: 50px 0px 150px 0px;
+    
+}
+
+.EventImage {
+    width: 100%;
+    height: auto;
+}
+
+.Headline {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    margin-top: 2em;
+}
+
+.Date {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.Dag {
+    margin: 20px 0px;
+}
+
+.Description {
+    margin-bottom: 1em;
+}
+
+.InfoList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.InfoItem {
+    margin-bottom: 0.5em;
+}
+
+.HeroButton {
+    margin: 20px auto;
+    background-color: #8b9d83;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }

@@ -21,6 +21,9 @@ import { AlertProvider } from "./contexts/AlertContext";
 import HomePage from "../src/pages/HomePage";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage";
+import Events from "./components/Events";
+import AdultEvent1 from "./pages/AdultEvent1";
+import KidsEvent1 from "./pages/information/KidsEvent1";
 
 
 export const CurrentUserContext = createContext();
@@ -38,7 +41,9 @@ function App() {
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/" render={() => <HomePage />} />
             <Route exact path="/about" render={() => <AboutPage />} />
-
+            <Route exact path="/events" render={() => <Events/>} />
+            <Route exact path="/vuxna" render={() => <AdultEvent1/>} />
+            <Route exact path="/ungdomar" render={() => <KidsEvent1/>} />
 
             <PrivateRoute
               exact
