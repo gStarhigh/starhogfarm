@@ -26,7 +26,7 @@ function Events() {
         headline: "2 dagars event för vuxna(18+)",
         date: '29-30/6',
         infoList: ['2x Teorilektioner.', '2x Ridlektioner.', 'Lunch & Middag.', 'Endast 2600:- allt inkluderat.'],
-        link: '/vuxna'
+        link: '/vuxna/event'
     };
 
     const event2 = {

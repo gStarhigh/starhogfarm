@@ -24,6 +24,7 @@ import AboutPage from "./pages/AboutPage";
 import Events from "./components/Events";
 import AdultEvent1 from "./pages/AdultEvent1";
 import KidsEvent1 from "./pages/information/KidsEvent1";
+import BookingForm from "./components/Adultbooking";
 
 
 export const CurrentUserContext = createContext();
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/events" render={() => <Events/>} />
             <Route exact path="/vuxna" render={() => <AdultEvent1/>} />
             <Route exact path="/ungdomar" render={() => <KidsEvent1/>} />
+            <Route exact path="/vuxna/event" render={() => <BookingForm/>} />
 
             <PrivateRoute
               exact
