@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { axiosReq } from "../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
 import AdultSpotsLeft from "./AdultSpotsLeft";
+import { AlertContext } from "../contexts/AlertContext";
 
 const BookingForm = () => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
+  const { setAlert } = useContext(AlertContext);
   const [formData, setFormData] = useState({
     full_name: "",
     phone_number: "",
@@ -48,6 +50,7 @@ const BookingForm = () => {
     // Send a POST request to your Django backend
     try {
       await axiosReq.post("/adultevent/", formData);
+      setAlert("Din bokning är genomförd!");
       history.push("/");
     } catch (errors) {
       if (errors.response?.status !== 401) {
