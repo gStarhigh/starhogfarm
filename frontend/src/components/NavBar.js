@@ -49,7 +49,7 @@ const NavBar = () => {
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
-      setAlert("You signed out successfully!");
+      setAlert("Du är nu utloggad!");
       setCurrentUser(null);
       removeTokenTimestamp();
     } catch (err) {}

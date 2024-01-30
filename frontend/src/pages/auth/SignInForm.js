@@ -41,7 +41,7 @@ function SignInForm() {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
-      setAlert("You signed in successfully!");
+      setAlert("Du är nu inloggad!");
 
       // Check if there is a 'from' property in the location.state
       if (history.location.state && history.location.state.from) {
@@ -98,7 +98,6 @@ function SignInForm() {
                 {message}
               </Alert>
             ))}
-            
 
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>

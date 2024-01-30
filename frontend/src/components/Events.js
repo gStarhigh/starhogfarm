@@ -6,8 +6,8 @@ import styles from "../styles/Events.module.css";
 function Event({ headline, date, infoList, link }) {
   return (
     <div className={styles.Events}>
-      <h1>{headline}</h1>
-      <h2>{date}</h2>
+      <h1 className={styles.Headline}>{headline}</h1>
+      <h2 className={styles.Date}>{date}</h2>
       <ul>
         {infoList.map((item, index) => (
           <li key={index}>{item}</li>
@@ -24,8 +24,8 @@ function Event({ headline, date, infoList, link }) {
 
 function Events() {
   const event1 = {
-    headline: "2 dagars event för vuxna(18+)",
-    date: "29-30/6",
+    headline: "2 dagars event för 18+.",
+    date: "29 & 30 Juni 2024",
     infoList: [
       "2x Teorilektioner.",
       "2x Ridlektioner.",
@@ -36,8 +36,8 @@ function Events() {
   };
 
   const event2 = {
-    headline: "2 dagars event för ungdomar(12-17år)",
-    date: "1-2/7",
+    headline: "2 dagars event för 12-17år.",
+    date: "1 & 2 Juli 2024",
     infoList: [
       "2x Teorilektioner.",
       "Ridlektioner.",
