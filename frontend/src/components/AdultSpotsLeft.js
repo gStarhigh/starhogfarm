@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { axiosReq } from "../api/axiosDefaults";
 import axios from "axios";
 
 const AdultSpotsLeft = () => {
