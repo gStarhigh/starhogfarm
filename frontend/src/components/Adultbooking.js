@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { axiosReq } from "../api/axiosDefaults";
+import { useHistory } from "react-router-dom";
+import AdultSpotsLeft from "./AdultSpotsLeft";
 
 const BookingForm = () => {
   const [errors, setErrors] = useState({});
+  const history = useHistory();
   const [formData, setFormData] = useState({
     full_name: "",
     phone_number: "",
@@ -46,12 +48,10 @@ const BookingForm = () => {
     // Send a POST request to your Django backend
     try {
       await axiosReq.post("/adultevent/", formData);
-      console.log(formData);
-      console.log("Skickade infon");
+      history.push("/");
     } catch (errors) {
       if (errors.response?.status !== 401) {
         setErrors(errors.response?.data);
-        console.log(errors);
       }
     }
   };
@@ -133,6 +133,7 @@ const BookingForm = () => {
       <p style={{ cursor: "pointer" }} onClick={handleShow}>
         Klicka här för att läsa avtalet
       </p>
+      <AdultSpotsLeft />
       <Form.Group controlId="agreement_accepted">
         <Form.Check
           type="checkbox"
