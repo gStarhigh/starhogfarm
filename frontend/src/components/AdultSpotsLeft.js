@@ -20,8 +20,10 @@ const AdultSpotsLeft = () => {
   return (
     <p>
       {remainingSpots !== null
-        ? `Antal boxplatser kvar: ${remainingSpots}st`
-        : "Antal boxplatser kvar: 5st"}
+        ? remainingSpots === 0
+          ? "Tyvärr är alla boxplatser fulla, men det går fortfarande bra att boka medverkan på evenemanget."
+          : `Antal lediga boxplatser kvar: ${remainingSpots}st`
+        : "Antal lediga boxplatser kvar: 5st"}
     </p>
   );
 };
