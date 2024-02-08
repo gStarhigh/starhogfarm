@@ -56,11 +56,7 @@ function AdultEvent1() {
 
   return (
     <div className={styles.AdultEvent1}>
-      <img
-        src={event.imageUrl}
-        alt="Event Image"
-        className={styles.EventImage}
-      />
+      <img src={event.imageUrl} alt="Event" className={styles.EventImage} />
       <h2 className={styles.Headline}>{event.headline}</h2>
       <h4 className={styles.Date}>{event.date}</h4>
       <p>{event.description}</p>

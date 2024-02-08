@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -25,7 +25,22 @@ const BookingForm = () => {
     competition_level: "",
     additional_info: "",
     agreement_accepted: false,
+    wants_box_spot: null,
   });
+  const [remainingSpots, setRemainingSpots] = useState(null);
+
+  useEffect(() => {
+    const fetchRemainingSpots = async () => {
+      try {
+        const response = await axiosReq.get("/available_spots/");
+        setRemainingSpots(response.data.available_spots);
+      } catch (error) {
+        console.error("Error fetching remaining spots:", error);
+      }
+    };
+
+    fetchRemainingSpots();
+  }, []);
 
   const {
     full_name,
@@ -34,6 +49,7 @@ const BookingForm = () => {
     competition_level,
     additional_info,
     agreement_accepted,
+    wants_box_spot,
   } = formData;
 
   const handleChange = (e) => {
@@ -41,7 +57,7 @@ const BookingForm = () => {
     if (e.target.type === "select-multiple") {
       value = Array.from(e.target.selectedOptions, (option) => option.value);
     } else if (e.target.type === "checkbox") {
-      value = e.target.checked; // Använd checked-attributet för att få boolean-värdet för kryssrutan
+      value = e.target.checked;
     } else {
       value = e.target.value;
     }
@@ -55,7 +71,7 @@ const BookingForm = () => {
     e.preventDefault();
     const missingFields = [];
 
-    // Validera varje fält och lägg till felmeddelanden till listan
+    // Validate each field and add error messages to the list
     if (!full_name) {
       missingFields.push("Fullständigt namn");
     }
@@ -74,8 +90,11 @@ const BookingForm = () => {
     if (!agreement_accepted) {
       missingFields.push("Godkänna Avtalet");
     }
+    if (!agreement_accepted) {
+      missingFields.push("Boxplats");
+    }
 
-    // Om det finns saknade fält, visa felmeddelanden
+    // If there are missing fields, show error messages
     if (missingFields.length > 0) {
       const errorMessage = `Följande fält saknas: ${missingFields.join(", ")}`;
       setAlert(errorMessage);
@@ -184,6 +203,40 @@ const BookingForm = () => {
                 </Alert>
               ))}
 
+              <AdultSpotsLeft />
+              {/* Render the radio button only if there are remaining spots */}
+              {remainingSpots !== null && remainingSpots > 0 && (
+                <Form.Group controlId="wants_box_spot">
+                  <Form.Label>Vill du ha en boxplats?</Form.Label>
+                  <Form.Check
+                    inline
+                    type="radio"
+                    name="wants_box_spot"
+                    id="yes"
+                    value="Ja"
+                    checked={wants_box_spot === "Ja"}
+                    onChange={handleChange}
+                    label="Ja"
+                  />
+                  <Form.Check
+                    inline
+                    type="radio"
+                    name="wants_box_spot"
+                    id="no"
+                    value="Nej"
+                    checked={wants_box_spot === "Nej"}
+                    onChange={handleChange}
+                    label="Nej"
+                  />
+                </Form.Group>
+              )}
+
+              {errors?.wants_box_spot?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+
               <Form.Group controlId="additional_info">
                 <Form.Label>
                   Berätta lite om dig själv och om du har något speciellt du
@@ -206,7 +259,7 @@ const BookingForm = () => {
               <p className={styles.Agreement} onClick={handleShow}>
                 Klicka här för att läsa avtalet
               </p>
-              <AdultSpotsLeft />
+
               <Form.Group controlId="agreement_accepted">
                 <Form.Check
                   type="checkbox"

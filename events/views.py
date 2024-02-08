@@ -21,18 +21,26 @@ class AdultEventListCreateView(generics.ListCreateAPIView):
         
 class AvailableSpotsView(APIView):
     def get(self, request):
-        # Hämta antalet bokningar för vuxenevenemang
-        num_bookings = AdultEvent.objects.aggregate(total_bookings=Sum('booked_spots'))['total_bookings']
-        if num_bookings is None:
-            num_bookings = 0
+        try:
+            # Försök hämta det första AdultEvent-objektet
+            adult_event = AdultEvent.objects.first()
+            if adult_event is None:
+                total_horse_box_spots = 5
+            else:
+                total_horse_box_spots = adult_event.horse_box_spots
 
-        # Hämta totalt antal hästboxplatser för vuxenevenemang
-        total_horse_box_spots = AdultEvent.objects.first().horse_box_spots
+            # Hämta antalet bokningar, om det inte finns några bokningar sätt till 0
+            num_bookings = AdultEvent.objects.aggregate(total_bookings=Sum('booked_spots'))['total_bookings'] or 0
 
-        # Beräkna antalet tillgängliga platser genom att subtrahera antalet bokningar från det totala antalet platser
-        available_spots = max(0, total_horse_box_spots - num_bookings)
+            # Beräkna antalet tillgängliga platser
+            available_spots = max(0, total_horse_box_spots - num_bookings)
 
-        return Response({"available_spots": available_spots})
+            return Response({"available_spots": available_spots})
+        except Exception as e:
+            # Hantera eventuella fel som uppstår under beräkningen
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
 
 
     

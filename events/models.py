@@ -58,7 +58,7 @@ class AdultEvent(Event):
     
     def save(self, *args, **kwargs):
         self.event_type = 'AdultEvent'
-        if self.booked_spots < 5:  # Kolla om det finns platser kvar
+        if self.booked_spots < 6:  # Kolla om det finns platser kvar
             self.booked_spots += 1
             if self.booked_spots == 5:  # Om det är sista platsen, sätt horse_box_spots till 0
                 self.horse_box_spots = 0

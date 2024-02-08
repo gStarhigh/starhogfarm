@@ -8,6 +8,7 @@ const AdultSpotsLeft = () => {
     const fetchRemainingSpots = async () => {
       try {
         const response = await axios.get("/available_spots/");
+        console.log("Response data:", response.data);
         setRemainingSpots(response.data.available_spots);
       } catch (error) {
         console.error("Error fetching remaining spots:", error);
@@ -18,13 +19,15 @@ const AdultSpotsLeft = () => {
   }, []);
 
   return (
-    <p>
-      {remainingSpots !== null
-        ? remainingSpots === 0
-          ? "Tyvärr är alla boxplatser fulla, men det går fortfarande bra att boka medverkan på evenemanget."
-          : `Antal lediga boxplatser kvar: ${remainingSpots}st`
-        : "Antal lediga boxplatser kvar: 5st"}
-    </p>
+    <>
+      {remainingSpots !== null && (
+        <p>
+          {remainingSpots === 0
+            ? "Tyvärr är alla boxplatser fulla, men det går fortfarande bra att boka medverkan på evenemanget."
+            : `Antal lediga boxplatser kvar: ${remainingSpots}st`}
+        </p>
+      )}
+    </>
   );
 };
 
