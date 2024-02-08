@@ -139,6 +139,14 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i>Hem
             </NavLink>
+            <NavLink
+              to="/events"
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              exact
+            >
+              <i class="fa-regular fa-calendar-days"></i>Evenemang
+            </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>

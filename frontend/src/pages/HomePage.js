@@ -57,24 +57,26 @@ function HomePage() {
           <Row className="justify-content-center">
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
-                <FontAwesomeIcon icon={faHorseHead} className={styles.FontA} />
-                <h2 className="text-2xl font-bold">Boka en lektion</h2>
-                <p className="text-muted">
-                  Boka en lektion på vår ridbana eller hemma hos er med våra
-                  högklassiga instruktörer.
-                </p>
-              </div>
-            </Col>
-            <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
-              <div className="d-flex flex-column align-items-center text-center">
                 <Link to="/events" className={styles.Link}>
                   <FontAwesomeIcon
                     icon={faCalendarDays}
                     className={styles.FontA}
                   />
                   <h2 className="text-2xl font-bold">Evenemang</h2>
-                  <p className="text-muted">Läs mer om våra kommande event!</p>
+                  <p className="text-muted">
+                    Läs mer om våra kommande evenemang!
+                  </p>
                 </Link>
+              </div>
+            </Col>
+            <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
+              <div className="d-flex flex-column align-items-center text-center">
+                <FontAwesomeIcon icon={faHorseHead} className={styles.FontA} />
+                <h2 className="text-2xl font-bold">Boka en lektion</h2>
+                <p className="text-muted">
+                  Boka en lektion på vår ridbana eller hemma hos er med våra
+                  högklassiga instruktörer.
+                </p>
               </div>
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>

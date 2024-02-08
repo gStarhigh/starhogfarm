@@ -1,14 +1,14 @@
 // React imports
 import { createContext } from "react";
 import { Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 // React Bootstrap imports
 import Container from "react-bootstrap/Container";
 
-
 // My own imports
 import styles from "./App.module.css";
-
 
 import NavBar from "./components/NavBar";
 import "./api/axiosDefaults";
@@ -26,11 +26,21 @@ import AdultEvent1 from "./pages/AdultEvent1";
 import KidsEvent1 from "./pages/information/KidsEvent1";
 import BookingForm from "./components/Adultbooking";
 
-
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
 function App() {
+  const history = useHistory();
+
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => {
+      unlisten();
+    };
+  }, [history]);
 
   return (
     <AlertProvider>
@@ -42,10 +52,10 @@ function App() {
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/" render={() => <HomePage />} />
             <Route exact path="/about" render={() => <AboutPage />} />
-            <Route exact path="/events" render={() => <Events/>} />
-            <Route exact path="/vuxna" render={() => <AdultEvent1/>} />
-            <Route exact path="/ungdomar" render={() => <KidsEvent1/>} />
-            <Route exact path="/vuxna/event" render={() => <BookingForm/>} />
+            <Route exact path="/events" render={() => <Events />} />
+            <Route exact path="/vuxna" render={() => <AdultEvent1 />} />
+            <Route exact path="/ungdomar" render={() => <KidsEvent1 />} />
+            <Route exact path="/vuxna/event" render={() => <BookingForm />} />
 
             <PrivateRoute
               exact
@@ -59,7 +69,7 @@ function App() {
             />
           </Switch>
         </Container>
-        <Footer/>
+        <Footer />
       </div>
     </AlertProvider>
   );
