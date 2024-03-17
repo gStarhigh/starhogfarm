@@ -30,7 +30,7 @@ class AvailableSpotsView(APIView):
                 total_horse_box_spots = adult_event.horse_box_spots
 
             # Hämta antalet bokningar, om det inte finns några bokningar sätt till 0
-            num_bookings = AdultEvent.objects.aggregate(total_bookings=Sum('booked_spots'))['total_bookings'] or 0
+            num_bookings = AdultEvent.objects.aggregate(total_bookings=Sum('wants_box_spot'))['total_bookings'] or 0
 
             # Beräkna antalet tillgängliga platser
             available_spots = max(0, total_horse_box_spots - num_bookings)

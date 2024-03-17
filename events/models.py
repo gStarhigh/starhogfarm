@@ -46,22 +46,19 @@ class AdultEvent(Event):
     booked_spots = models.PositiveIntegerField(default=0) # Antal platser som har bokats
     horse_box_spots = models.PositiveIntegerField(default=5) # Max antal hästboxplatser
     additional_info = models.TextField(blank=True, null=True) # Ytterligare information
+    wants_box_spot = models.PositiveIntegerField(default=0) # Antal box platser som har bokats
     
     def available_box_spots(self):
         """
         Beräknar antalet tillgängliga hästboxplatser för vuxenevenemanget.
         """
         total_horse_box_spots = self.horse_box_spots
-        used_horse_box_spots = self.booked_spots
+        used_horse_box_spots = self.wants_box_spot
         available_spots = total_horse_box_spots - used_horse_box_spots
         return max(0, available_spots)
     
     def save(self, *args, **kwargs):
         self.event_type = 'AdultEvent'
-        if self.booked_spots < 6:  # Kolla om det finns platser kvar
-            self.booked_spots += 1
-            if self.booked_spots == 5:  # Om det är sista platsen, sätt horse_box_spots till 0
-                self.horse_box_spots = 0
         super().save(*args, **kwargs)
 
 

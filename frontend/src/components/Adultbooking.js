@@ -25,7 +25,7 @@ const BookingForm = () => {
     competition_level: "",
     additional_info: "",
     agreement_accepted: false,
-    wants_box_spot: null,
+    wants_box_spot: 0,
   });
   const [remainingSpots, setRemainingSpots] = useState(null);
 
@@ -104,6 +104,7 @@ const BookingForm = () => {
     // Send a POST request to your Django backend
     try {
       await axiosReq.post("/adultevent/", formData);
+      setRemainingSpots((prevSpots) => prevSpots - 1);
       setAlert(
         "Tack för din bokning! Du får snart ett bekräftelsemejl till email addressen du angav."
       );
@@ -213,9 +214,14 @@ const BookingForm = () => {
                     type="radio"
                     name="wants_box_spot"
                     id="yes"
-                    value="Ja"
-                    checked={wants_box_spot === "Ja"}
-                    onChange={handleChange}
+                    value="1"
+                    checked={wants_box_spot === 1}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        wants_box_spot: parseInt(e.target.value),
+                      })
+                    }
                     label="Ja"
                   />
                   <Form.Check
@@ -223,9 +229,14 @@ const BookingForm = () => {
                     type="radio"
                     name="wants_box_spot"
                     id="no"
-                    value="Nej"
-                    checked={wants_box_spot === "Nej"}
-                    onChange={handleChange}
+                    value="0"
+                    checked={wants_box_spot === 0}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        wants_box_spot: parseInt(e.target.value),
+                      })
+                    }
                     label="Nej"
                   />
                 </Form.Group>
