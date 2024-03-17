@@ -1,6 +1,6 @@
 .Row {
-    height: calc(100vh - 81px);
-    margin: 40px auto;
+    height: 120vh;
+    margin: 60px auto;
 }
 
 .Input {
@@ -36,11 +36,18 @@
 
 .Container {
     padding: 30px 10px;
+    margin: auto;
 }
 
 .Content {
-    background-color: #71816D;
+    background-color: #aebea7;
     border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+}
+
+.Box {
+    margin-right: 10px;
 }
 
 .Agreement {
@@ -49,3 +56,49 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+.Cancel {
+    background-color: #968E85;
+    padding: 5px;
+    border: 2px solid #968E85;
+    border-radius: 20px;
+    color: white;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.Cancel:hover {
+    color: #968E85;
+    background-color: white;
+}
+
+.Submit {
+    background-color: #2142b2;
+    padding: 5px;
+    border: 2px solid #2142b2;
+    border-radius: 20px;
+    color: white;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.Submit:hover {
+    color: #2142b2;
+    background-color: white;
+}
+
+/* Media Q*/
+/* @media only screen and (min-width: 769px) {
+    .Row {
+        max-width: auto;
+        margin: 20px auto;
+        padding: ;
+    }
+    .Content {
+        max-width: 50vw;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 10px;
+    }
+} */

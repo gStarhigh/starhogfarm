@@ -1,27 +1,35 @@
 .Events {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: block;
+    text-align: center;
+    justify-content: center;
     background-color: #aebea7;
     border-radius: 10px;
-    padding: 50px;
-    gap: 50px;
+    padding: 20px;
     margin: 50px 0px;
 }
 
 .Headline {
- text-align: center;
- font-size: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .Date {
     text-align: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+
+.Content {
+    justify-content: center;
+    text-align: start;
+    font-size: 0.9rem;
 }
 
 
+
 .HeroButton {
+    display: block;
+    justify-content: center;
     margin: 20px auto;
     background-color: #35393C;
     color: white;
@@ -30,13 +38,5 @@
     border-radius: 10px;
     text-transform: uppercase;
     text-decoration: none;
-  }
-
-
-
-@media only screen and (max-width: 991px) {
-    .HeroButton {
-        display: block;
-        justify-content: center;
-    }
+    cursor: pointer;
 }

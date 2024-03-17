@@ -28,7 +28,9 @@ function HomePage() {
           ></img>
           <div className={styles.HeroText}>
             <h2 className={styles.HeroH2}>Starhög {"\n"}Gård</h2>
-            <button className={styles.HeroButton}>Logga in</button>
+            <Link to="/events" className={styles.Link}>
+              <button className={styles.HeroButton}>Evenemang</button>
+            </Link>
           </div>
         </div>
       </section>

@@ -8,9 +8,11 @@ function Event({ headline, date, infoList, link }) {
     <div className={styles.Events}>
       <h1 className={styles.Headline}>{headline}</h1>
       <h2 className={styles.Date}>{date}</h2>
-      <ul>
+      <ul className={styles.Content}>
         {infoList.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li className={styles.List} key={index}>
+            {item}
+          </li>
         ))}
       </ul>
       <button className={styles.HeroButton}>

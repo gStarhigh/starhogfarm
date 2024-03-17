@@ -1,13 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
+import { axiosReq } from "../api/axiosDefaults";
+import AdultSpotsLeft from "./AdultSpotsLeft";
+import { AlertContext } from "../contexts/AlertContext";
+
+import emailjs from "emailjs-com";
+
 import { Form } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { axiosReq } from "../api/axiosDefaults";
-import { useHistory } from "react-router-dom";
-import AdultSpotsLeft from "./AdultSpotsLeft";
-import { AlertContext } from "../contexts/AlertContext";
 import Alert from "react-bootstrap/Alert";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -28,6 +31,10 @@ const BookingForm = () => {
     wants_box_spot: 0,
   });
   const [remainingSpots, setRemainingSpots] = useState(null);
+
+  // email js
+  const serviceID = "service_bp6z8w3";
+  const templateID = "event_created";
 
   useEffect(() => {
     const fetchRemainingSpots = async () => {
@@ -58,6 +65,18 @@ const BookingForm = () => {
       value = Array.from(e.target.selectedOptions, (option) => option.value);
     } else if (e.target.type === "checkbox") {
       value = e.target.checked;
+      // För agreement_accepted, uppdatera felmeddelandet baserat på användarens val
+      if (!value) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          agreement_accepted: ["Du måste acceptera avtalet för att fortsätta."],
+        }));
+      } else {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          agreement_accepted: [], // Ta bort eventuella felmeddelanden
+        }));
+      }
     } else {
       value = e.target.value;
     }
@@ -69,45 +88,61 @@ const BookingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const missingFields = [];
 
-    // Validate each field and add error messages to the list
+    const newErrors = {}; // Skapa ett nytt objekt för att hålla reda på felen
+
+    // Kontrollera om avtalet har accepterats
+    if (!agreement_accepted) {
+      newErrors.agreement_accepted = [
+        "Du måste acceptera avtalet för att boka.",
+      ];
+    }
+
+    // Kontrollera de andra fälten och sätt felmeddelanden om de är tomma
     if (!full_name) {
-      missingFields.push("Fullständigt namn");
+      newErrors.full_name = ["Detta fält kan ej vara tomt."];
     }
     if (!phone_number) {
-      missingFields.push("Telefonnummer");
+      newErrors.phone_number = ["Detta fält kan ej vara tomt."];
     }
     if (!email) {
-      missingFields.push("E-postadress");
+      newErrors.email = ["Detta fält kan ej vara tomt."];
     }
     if (!competition_level) {
-      missingFields.push("Tävlingsnivå");
-    }
-    if (!additional_info) {
-      missingFields.push("Informationstext");
-    }
-    if (!agreement_accepted) {
-      missingFields.push("Godkänna Avtalet");
-    }
-    if (!agreement_accepted) {
-      missingFields.push("Boxplats");
+      newErrors.competition_level = ["Detta fält kan ej vara tomt."];
     }
 
-    // If there are missing fields, show error messages
-    if (missingFields.length > 0) {
-      const errorMessage = `Följande fält saknas: ${missingFields.join(", ")}`;
-      setAlert(errorMessage);
+    // Sätt de nya felen i errors-objektet
+    setErrors(newErrors);
+
+    // Om det finns några fel, avbryt och visa dem
+    if (Object.keys(newErrors).length > 0) {
       return;
     }
 
-    // Send a POST request to your Django backend
+    const templateParams = {
+      from_event: "Vuxen - 29/30 juli",
+      from_name: formData.full_name,
+      from_phone: formData.phone_number,
+      from_email: formData.email,
+      from_info: formData.additional_info,
+      from_box: formData.wants_box_spot,
+    };
+
+    // Skicka formuläret om alla fält är ifyllda och avtalet har accepterats
     try {
       await axiosReq.post("/adultevent/", formData);
       setRemainingSpots((prevSpots) => prevSpots - 1);
       setAlert(
         "Tack för din bokning! Du får snart ett bekräftelsemejl till email addressen du angav."
       );
+      await emailjs.send(
+        serviceID,
+        templateID,
+        templateParams,
+        "xWnNr7v5p2qYNDBZo"
+      );
+
       history.push("/");
     } catch (errors) {
       if (errors.response?.status !== 401) {
@@ -136,12 +171,12 @@ const BookingForm = () => {
                   maxLength={150}
                   placeholder="Förnamn"
                 />
+                {errors?.full_name?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
               </Form.Group>
-              {errors?.full_name?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
 
               <Form.Group controlId="phone_number">
                 <Form.Label>Telefon nummer</Form.Label>
@@ -157,12 +192,12 @@ const BookingForm = () => {
                   }}
                   placeholder="Förnamn"
                 />
+                {errors?.phone_number?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
               </Form.Group>
-              {errors?.phone_number?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
 
               <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
@@ -173,12 +208,12 @@ const BookingForm = () => {
                   onChange={handleChange}
                   placeholder="namn@exempel.se"
                 />
+                {errors?.email?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
               </Form.Group>
-              {errors?.email?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
 
               <Form.Group controlId="competition_level">
                 <Form.Label>Välj din tävlingsnivå</Form.Label>
@@ -197,18 +232,20 @@ const BookingForm = () => {
                   <option value="MSV C">MSV C</option>
                   <option value="Grand Prix">Grand Prix</option>
                 </Form.Control>
+                {errors?.competition_level?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
               </Form.Group>
-              {errors?.competition_level?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
 
               <AdultSpotsLeft />
               {/* Render the radio button only if there are remaining spots */}
               {remainingSpots !== null && remainingSpots > 0 && (
                 <Form.Group controlId="wants_box_spot">
-                  <Form.Label>Vill du ha en boxplats?</Form.Label>
+                  <Form.Label className={styles.Box}>
+                    Vill du ha en boxplats?
+                  </Form.Label>
                   <Form.Check
                     inline
                     type="radio"
@@ -239,14 +276,13 @@ const BookingForm = () => {
                     }
                     label="Nej"
                   />
+                  {errors?.wants_box_spot?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                      {message}
+                    </Alert>
+                  ))}
                 </Form.Group>
               )}
-
-              {errors?.wants_box_spot?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
 
               <Form.Group controlId="additional_info">
                 <Form.Label>
@@ -260,12 +296,12 @@ const BookingForm = () => {
                   onChange={handleChange}
                   rows={3}
                 />
+                {errors?.additional_info?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
               </Form.Group>
-              {errors?.additional_info?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
 
               <p className={styles.Agreement} onClick={handleShow}>
                 Klicka här för att läsa avtalet
@@ -280,14 +316,19 @@ const BookingForm = () => {
                   onChange={handleChange}
                   label="Jag har läst och godkänner avtalet."
                 />
+                {errors?.agreement_accepted?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
               </Form.Group>
-              {errors?.agreement_accepted?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-              <button type="reset">Avbryt</button>
-              <button type="submit">Boka</button>
+
+              <button className={styles.Cancel} type="reset">
+                Avbryt
+              </button>
+              <button className={styles.Submit} type="submit">
+                Boka
+              </button>
 
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

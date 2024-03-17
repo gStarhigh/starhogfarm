@@ -51,7 +51,7 @@ function AdultEvent1() {
     link: "/vuxna/event",
     imageUrl:
       "https://res.cloudinary.com/draygqe7t/image/upload/v1691502265/123444577_184051683261535_824802158311214574_n_yjw2zu.jpg",
-    description: "Hello dawdawda wdawd awd awd", // Placeholder for a description
+    description: "Välkommen!", // Placeholder for a description
   };
 
   return (
@@ -63,7 +63,7 @@ function AdultEvent1() {
       <div className={styles.ScheduleContainer}>
         {event.schedule.map((day, dayIndex) => (
           <div key={dayIndex} className={styles.DayContainer}>
-            <h3 className={styles.Dag}>Dag{day.day}</h3>
+            <h3 className={styles.Dag}>Dag {day.day}</h3>
             <ul className={styles.InfoList}>
               {day.activities.map((activity, activityIndex) => (
                 <li key={activityIndex} className={styles.InfoItem}>
