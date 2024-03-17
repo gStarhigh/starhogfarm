@@ -21,7 +21,7 @@ class KidsEventSerializer(EventSerializer):
 
     class Meta(EventSerializer.Meta):
         model = KidsEvent
-        fields = EventSerializer.Meta.fields + ['booked_spots', 'horse_box_spots', 'additional_info', 'available_box_spots']
+        fields = EventSerializer.Meta.fields + ['booked_spots', 'horse_box_spots', 'additional_info', 'available_box_spots', 'wants_box_spot']
 
     def get_available_box_spots(self, obj):
         return obj.available_box_spots()

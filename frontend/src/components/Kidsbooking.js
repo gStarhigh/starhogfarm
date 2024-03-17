@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { axiosReq } from "../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
-import AdultSpotsLeft from "./AdultSpotsLeft";
+import KidsSpotsLeft from "./KidsSpotsLeft";
 import { AlertContext } from "../contexts/AlertContext";
 import Alert from "react-bootstrap/Alert";
 
@@ -32,8 +32,8 @@ const BookingForm = () => {
   useEffect(() => {
     const fetchRemainingSpots = async () => {
       try {
-        const response = await axiosReq.get("/available_spots_adult/");
-        setRemainingSpots(response.data.available_spots_adult);
+        const response = await axiosReq.get("/available_spots_kids/");
+        setRemainingSpots(response.data.available_spots_kids);
       } catch (error) {
         console.error("Error fetching remaining spots:", error);
       }
@@ -103,7 +103,7 @@ const BookingForm = () => {
 
     // Send a POST request to your Django backend
     try {
-      await axiosReq.post("/adultevent/", formData);
+      await axiosReq.post("/kidsevent/", formData);
       setRemainingSpots((prevSpots) => prevSpots - 1);
       setAlert(
         "Tack för din bokning! Du får snart ett bekräftelsemejl till email addressen du angav."
@@ -204,7 +204,7 @@ const BookingForm = () => {
                 </Alert>
               ))}
 
-              <AdultSpotsLeft />
+              <KidsSpotsLeft />
               {/* Render the radio button only if there are remaining spots */}
               {remainingSpots !== null && remainingSpots > 0 && (
                 <Form.Group controlId="wants_box_spot">

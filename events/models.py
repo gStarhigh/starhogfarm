@@ -54,8 +54,8 @@ class AdultEvent(Event):
         """
         total_horse_box_spots = self.horse_box_spots
         used_horse_box_spots = self.wants_box_spot
-        available_spots = total_horse_box_spots - used_horse_box_spots
-        return max(0, available_spots)
+        available_spots_adult = total_horse_box_spots - used_horse_box_spots
+        return max(0, available_spots_adult)
     
     def save(self, *args, **kwargs):
         self.event_type = 'AdultEvent'
@@ -66,20 +66,17 @@ class KidsEvent(Event):
     booked_spots = models.PositiveIntegerField(default=0) # Antal platser som har bokats
     horse_box_spots = models.PositiveIntegerField(default=5) # Max antal hästboxplatser
     additional_info = models.TextField(blank=True, null=True) # Ytterligare information
+    wants_box_spot = models.PositiveIntegerField(default=0) # Antal box platser som har bokats
     
     def available_box_spots(self):
         """
         Beräknar antalet tillgängliga hästboxplatser för barnen evenemanget.
         """
         total_horse_box_spots = self.horse_box_spots
-        used_horse_box_spots = self.booked_spots
-        available_spots = total_horse_box_spots - used_horse_box_spots
-        return available_spots
+        used_horse_box_spots = self.wants_box_spot
+        available_spots_kids = total_horse_box_spots - used_horse_box_spots
+        return max(0, available_spots_kids)
     
     def save(self, *args, **kwargs):
         self.event_type = 'KidsEvent'
-        if self.booked_spots >= 5:
-            self.horse_box_spots = 0
-        else:
-            self.booked_spots += 1
         super().save(*args, **kwargs)

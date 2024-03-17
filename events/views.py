@@ -19,6 +19,17 @@ class AdultEventListCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save()
         
+
+class KidsEventListCreateView(generics.ListCreateAPIView):
+    queryset = KidsEvent.objects.all()
+    serializer_class = KidsEventSerializer
+    
+    def get_queryset(self):
+        return KidsEvent.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+        
 class AvailableSpotsView(APIView):
     def get(self, request):
         try:
@@ -33,17 +44,32 @@ class AvailableSpotsView(APIView):
             num_bookings = AdultEvent.objects.aggregate(total_bookings=Sum('wants_box_spot'))['total_bookings'] or 0
 
             # Beräkna antalet tillgängliga platser
-            available_spots = max(0, total_horse_box_spots - num_bookings)
+            available_spots_adult = max(0, total_horse_box_spots - num_bookings)
 
-            return Response({"available_spots": available_spots})
+            return Response({"available_spots_adult": available_spots_adult})
         except Exception as e:
             # Hantera eventuella fel som uppstår under beräkningen
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+class KidsAvailableSpotsView(APIView):
+    def get(self, request):
+        try:
+            # Försök hämta det första KidsEvent-objektet
+            kids_event = KidsEvent.objects.first()
+            if kids_event is None:
+                total_horse_box_spots = 5
+            else:
+                total_horse_box_spots = kids_event.horse_box_spots
+            
+            # Hämta antalet bokningar, om det inte finns några bokningar sätt till 0
+            num_bookings = KidsEvent.objects.aggregate(total_bookings=Sum('wants_box_spot'))['total_bookings'] or 0
+
+            # Beräkna antalet tillgängliga platser
+            available_spots_kids = max(0, total_horse_box_spots - num_bookings)
 
 
-    
-class KidsEventListCreateView(generics.ListCreateAPIView):
-    queryset = KidsEvent.objects.all()
-    serializer_class = KidsEventSerializer
+            return Response({"available_spots_kids": available_spots_kids})
+        except Exception as e:
+            # Hantera eventuella fel som uppstår under beräkningen
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

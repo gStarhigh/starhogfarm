@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const AdultSpotsLeft = () => {
+const KidsSpotsLeft = () => {
   const [remainingSpots, setRemainingSpots] = useState(null);
 
   useEffect(() => {
     const fetchRemainingSpots = async () => {
       try {
-        const response = await axios.get("/available_spots_adult/");
+        const response = await axios.get("/available_spots_kids/");
         console.log("Response data:", response.data);
-        setRemainingSpots(response.data.available_spots_adult);
+        setRemainingSpots(response.data.available_spots_kids);
       } catch (error) {
         console.error("Error fetching remaining spots:", error);
       }
@@ -31,4 +31,4 @@ const AdultSpotsLeft = () => {
   );
 };
 
-export default AdultSpotsLeft;
+export default KidsSpotsLeft;
