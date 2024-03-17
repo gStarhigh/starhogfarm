@@ -73,6 +73,8 @@ ALLOWED_HOSTS = [
     'starhogfarm-b9a36b032f73.herokuapp.com',
     'starhöggård.se',
     'www.starhöggård.se',
+    'xn--starhggrd-c3a8p.se',
+    'www.xn--starhggrd-c3a8p.se',
 ]
 
 
