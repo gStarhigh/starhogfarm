@@ -27,7 +27,7 @@ function HomePage() {
             alt="hero"
           ></img>
           <div className={styles.HeroText}>
-            <h2 className={styles.HeroH2}>Starhög {"\n"}Gård</h2>
+            <h1 className={styles.HeroH2}>Starhög {"\n"}Gård</h1>
             <Link to="/events" className={styles.Link}>
               <button className={styles.HeroButton}>Evenemang</button>
             </Link>
@@ -37,15 +37,13 @@ function HomePage() {
 
       <section>
         <div className={styles.Welcome}>
-          <h4>Välkommen till </h4>
+          <h2>Välkommen till</h2>
           <h3>STARHÖG GÅRD</h3>
           <p>
             Precis utanför Ängelholm, i en kuperad och välskött miljö på 9
-            hektar, finner du Starhög Gård. Gården, som är belägen med närhet
-            till både Helsingborg och Ängelholm, är familjen Starhögs
-            hjärteprojekt sedan 2019. Här bedrivs en mångfald av aktiviteter,
-            där hästar, evenemang och dressyrlektioner utgör kärnan i
-            verksamheten.
+            hektar, finner du Starhög Gård. Här bedrivs en mångfald av
+            aktiviteter, där hästar, evenemang och dressyrlektioner utgör kärnan
+            i verksamheten.
           </p>
           <p>
             Välkommen till Starhög Gård – där passion för hästar och familjens
@@ -74,11 +72,8 @@ function HomePage() {
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
                 <FontAwesomeIcon icon={faHorseHead} className={styles.FontA} />
-                <h2 className="text-2xl font-bold">Boka en lektion</h2>
-                <p className="text-muted">
-                  Boka en lektion på vår ridbana eller hemma hos er med våra
-                  högklassiga instruktörer.
-                </p>
+                <h2 className="text-2xl font-bold">Boka ridlektion</h2>
+                <p className="text-muted">Boka ridlektion för Maria Starhög.</p>
               </div>
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
@@ -89,8 +84,7 @@ function HomePage() {
                 />
                 <h2 className="text-2xl font-bold">Kontakta oss</h2>
                 <p className="text-muted">
-                  Har ni frågor eller behöver hjälp med något? Vi är här för er
-                  skull!
+                  Kontakta oss vid frågor eller funderingar.
                 </p>
               </div>
             </Col>

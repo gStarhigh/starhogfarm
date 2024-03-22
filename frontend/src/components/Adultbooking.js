@@ -45,7 +45,6 @@ const BookingForm = () => {
         console.error("Error fetching remaining spots:", error);
       }
     };
-
     fetchRemainingSpots();
   }, []);
 
@@ -169,7 +168,7 @@ const BookingForm = () => {
                   value={full_name}
                   onChange={handleChange}
                   maxLength={150}
-                  placeholder="Förnamn"
+                  placeholder="Fullständingt namn"
                 />
                 {errors?.full_name?.map((message, idx) => (
                   <Alert variant="warning" key={idx}>
@@ -190,7 +189,7 @@ const BookingForm = () => {
                       event.preventDefault();
                     }
                   }}
-                  placeholder="Förnamn"
+                  placeholder="Telefonnummer"
                 />
                 {errors?.phone_number?.map((message, idx) => (
                   <Alert variant="warning" key={idx}>

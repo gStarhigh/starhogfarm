@@ -11,40 +11,35 @@ function AdultEvent1() {
         day: 1,
         activities: [
           {
-            name: "Ridlektion",
-            description: "Ridlektion för Heidi",
-            time: "09:00-12:00",
+            name: "Ridlektion.",
+            description: "Heidi Vänttinän",
           },
-          { name: "Lunch", description: "Lunch", time: "12:00-13:00" },
+          { name: "Lunch.", description: "" },
           {
             name: "Teorilektion",
-            description: "Teorilektion med info...",
-            time: "13:00-14:00",
+            description: "Ryttarens sists och inverkan.",
           },
-          { name: "Fika", description: "Fika", time: "14:00-14:30" },
+          { name: "Fika.", description: "" },
           {
-            name: "Teorilektion",
-            description: "Teorilektion med info..",
-            time: "14:30-16:00",
+            name: "Teorilektion.",
+            description: "Ur domarens synvinkel.",
           },
-          { name: "Middag", description: "Grillad middag", time: "16:15->" },
+          { name: "Middag.", description: "" },
         ],
       },
       {
         day: 2,
         activities: [
           {
-            name: "Ridlektion",
-            description: "Ridlektion för Maria",
-            time: "09:00-12:00",
+            name: "Ridlektion.",
+            description: "Maria Starhög",
           },
-          { name: "Lunch", description: "Lunch", time: "12:00-13:00" },
+          { name: "Lunch.", description: "" },
           {
-            name: "Programridning",
-            description: "Programridning för Heidi",
-            time: "14:00-16:00",
+            name: "Programridning.",
+            description: "Heidi Vänmttinän",
           },
-          { name: "Avslutande fika", description: "Fika", time: "16:00->" },
+          { name: "Avslutande fika.", description: "" },
         ],
       },
     ],
@@ -68,7 +63,7 @@ function AdultEvent1() {
               {day.activities.map((activity, activityIndex) => (
                 <li key={activityIndex} className={styles.InfoItem}>
                   <p>
-                    <strong>{activity.name}</strong> ({activity.time})
+                    <strong>{activity.name}</strong>
                   </p>
                   <p>{activity.description}</p>
                 </li>
@@ -77,9 +72,11 @@ function AdultEvent1() {
           </div>
         ))}
       </div>
+      <p className={styles.Center}>Pris: 2600:- ink.moms.</p>
       <p className={styles.Center}>
-        Pris: 2600:- ink.moms för allt ovanstående inklusive boxplats.
+        Max 5 boxplatser (Halm) finns att hyra för 300:- extra.
       </p>
+
       <button className={styles.HeroButton}>
         <Link to={event.link} style={{ color: "white" }}>
           Boka nu!

@@ -26,25 +26,25 @@ function Event({ headline, date, infoList, link }) {
 
 function Events() {
   const event1 = {
-    headline: "2 dagars event för 18+.",
+    headline: "Två dagars ridläger för vuxna.",
     date: "29 & 30 Juni 2024",
     infoList: [
       "2x Teorilektioner.",
       "2x Ridlektioner.",
-      "Lunch & Middag.",
-      "Endast 2600:- allt inkluderat.",
+      "Programridning.",
+      "Pris: 2600:- inkl. moms.",
     ],
     link: "/vuxna/",
   };
 
   const event2 = {
-    headline: "2 dagars event för 12-17år.",
+    headline: "Två dagars ridläger för ungdomar (ca 13-18år).",
     date: "1 & 2 Juli 2024",
     infoList: [
       "2x Teorilektioner.",
       "Ridlektioner.",
-      "Programridning för domare.",
-      "Endast 2300:- allt inkluderat.",
+      "Programridning.",
+      "Pris: 2300:- inkl. moms.",
     ],
     link: "/ungdomar",
   };
