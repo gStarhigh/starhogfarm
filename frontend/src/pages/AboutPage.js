@@ -26,21 +26,14 @@ function AboutPage() {
             <Col md={7}>
               <h3>Maria Starhög</h3>
               <p>
-                Träffa Maria, en framstående dressyrryttare vars resa har
-                överträffat Grand Prix-arenan för att stärka en ny generation av
-                entusiaster. Efter att ha erövrat Grand Prix-tävlingarnas
-                intrikatesser kanaliserar Maria nu sin expertis till
-                undervisning. Med ett uppmärksamt öga för detaljer och ett
-                vårdat tillvägagångssätt guidar hon sina elever mot mästerskap,
-                och betonar det symbiotiska partnerskapet mellan ryttare och
-                häst. Marias arv sträcker sig bortom medaljer; hon formar
-                mångsidiga hästfolk. Hennes lektioner är en fusion av klassisk
-                visdom och moderna insikter, främjande inte bara teknisk
-                skicklighet utan också en djup uppskattning för dressyrens
-                konst. Som en fyr av hängivenhet inspirerar Maria sina elever
-                att omfamna värden som omsorg och empati, vilket säkerställer
-                att hennes påverkan resoneras långt bortom arenan och formar
-                själva essensen av hästvärlden.
+                Maria Starhög är dressyrryttare ut i fingerspetsarna. Sedan nio
+                års ålder har det varit dressyr för hela slanten, även om
+                variation är en stor del av upplägget i vardagen. Maria har
+                meriter till och med Grand Prix och ridit SM på ponny, junior
+                och young rider. Maria är även legitimerad Fysioterapeut till
+                yrket och lägger stor vikt vid ryttarens sits och inverkan.
+                Ridning ska vara roligt för alla, ryttare som häst. Alla är
+                alltid välkomna oavsett kunskap och nivå.
               </p>
             </Col>
           </Row>
@@ -73,20 +66,11 @@ function AboutPage() {
             <Col md={7}>
               <h3>Ridbanan</h3>
               <p>
-                Gömd under natthimlen är vår upplysta ridbana en plats där magi
-                sker. Det är en rymlig 20x60 meter, glödande mjukt med ljus som
-                får den att komma till liv efter mörkrets inbrott. Det är här
-                ryttare och deras hästar går samman för att skapa något vackert.
-                Det speciella ljuset får allt att se ut som en graciös dans,
-                oavsett om det är trav, galopp eller till och med hoppa över
-                hinder. Men det är inte bara en vacker syn, det är en rolig
-                plats att leka och lära sig på. Det finns olika saker att hoppa
-                över, som hinder och bommar, vilket gör träningen super
-                spännande. Oavsett om du är ny på ridning eller riktigt erfaren,
-                är vår arena som en stor lekplats där du och din häst kan bli de
-                bästa av kompisar. Eftersom det är så rymligt är det möjligt att
-                rida mer än 1 åt gången. Med vår instruktörs vägledning kommer
-                denna ridbana att bli ditt nästa hem!
+                Det är en rymlig 20x60m ridbana med stenmjölsunderlag. Här finns
+                även belysning och en enklare hinderpark. Väl inhägnad med
+                trästaket. Husets trädgård angränsar till ridbanan på ena sidan
+                och de öppna fälten på den andra, vilket kan ge ypperliga
+                möjligheter för miljöträning.
               </p>
             </Col>
           </Row>
@@ -95,18 +79,21 @@ function AboutPage() {
             <Col md={7}>
               <h3>Sommarbete</h3>
               <p>
-                Under soliga månader från maj till oktober blir vår förtrollande
-                sommarhage en fristad för unga hästar i åldrarna 1 till 3 år.
-                Med naturen som sin lekplats strövar upp till 10 lekfulla föl
-                och unghästar fritt på cirka 6 hektar frodig, grön mark. Det är
-                som ett hästparadis där de kan sträcka på benen, skapa nya
+                Under sommarhalvåret, från maj till oktober blir vår
+                förtrollande sommarhage en fristad för unga hästar i åldrarna 1
+                till 3 år. Med naturen som sin lekplats kan upp till 10 lekfulla
+                unghästar ströva fritt på cirka 6 hektar kuperat naturbete. Det
+                är som ett hästparadis där de kan sträcka på benen, skapa nya
                 vänner och bara vara sig själva. Vi håller noga koll på dessa
-                unga stjärnor och besöker dem minst två gånger om dagen för att
-                se till att de är glada och friska. Regn eller solsken, vi är
-                där för att säkerställa att de har allt de behöver. Det
-                föränderliga vädret bestämmer hur länge de får njuta av detta
-                hästparadis, men oavsett om det är en lång sommar eller en
-                kortare en, gör dessa unga hästar det mesta av varje ögonblick.
+                unga stjärnor och besöker dem minst en gånger om dagen, oftast
+                två, för att se till att de är glada och friska. Regn eller
+                solsken, vi är där för att säkerställa att de har allt de
+                behöver. Det föränderliga vädret bestämmer hur länge de får
+                njuta av detta hästparadis, men oavsett om det är en lång sommar
+                eller en kortare en så får de utmärkt grundträning i våra
+                härliga backar.
+                <hr />
+                <strong>Inget bete 2024 pga upprustning.</strong>
               </p>
             </Col>
             <Col md={5}>
@@ -129,24 +116,15 @@ function AboutPage() {
             <Col md={7}>
               <h3>Stallet</h3>
               <p>
-                Inbäddad bredvid denna livliga hage är vår mysiga ladugård, ett
-                hem hemifrån för dina följeslagare. Med sex rymliga boxar är det
-                en fristad för komfort och säkerhet. Varje häst har sin egen
-                plats, en plats där de kan vila och ladda efter en dag med
-                äventyr på betet. Vi förstår att hästar är unika individer, så
-                vi ser till att de har allt de behöver, från mysiga sängkläder
-                till rent vatten, för att säkerställa att de är nöjda och lugna.
-                Vi har två dedikerade områden för skötsel med all utrustning och
-                en praktisk vattenbehållare. Vår ladugård har också två rymliga
-                & isolerade sadelrum, perfekta för att förvara all din
-                ridutrustning och utrustning. Med gott om plats att organisera
-                sadlar, träns och andra väsentligheter kan du vara säker på att
-                din utrustning tas om hand och är redo när du är. När det gäller
-                dagliga behov, tar vi hand om allt. Matning, mockning av boxar
-                och in- och släpp av hästar är alla en del av rutinen. Det
-                handlar om att skapa en smidig och stressfri upplevelse för både
-                dig och din häst, så att du kan fokusera på att njuta av er tid
-                tillsammans.
+                Hos oss finns möjlighet till inackordering på stall. Här finns
+                totalt sex boxar, var av två fylls av våra egna hästar. Stallet
+                är luftigt och rymligt med två uppställningsplatser, spolplats,
+                sadelkammare, foderkammare och loge. Här vistas hästarna ute i
+                stora hagar från ca klockan 06 på morgonen till 20 på kvällen så
+                ofta som vädret tillåter. Under sommaren går de ute dygnet runt.
+                Här ingår halm, alla fodringar, ut- och insläpp samt mockning
+                alla dagar i veckan, även julafton, mot att man är behjälplig
+                med pass vid behov. Det ska vara enkelt att ha häst hos oss!
               </p>
             </Col>
           </Row>
