@@ -158,7 +158,11 @@ const BookingForm = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Row className={styles.Row}>
+    <Row
+      className={`${styles.Row} ${
+        errors && Object.keys(errors).length > 0 ? styles.HasErrors : ""
+      }`}
+    >
       <Col className={styles.SignUpCol}>
         <Col>
           <Container className={`${styles.Content} p-4 `}>

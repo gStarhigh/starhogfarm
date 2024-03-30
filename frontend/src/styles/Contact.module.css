@@ -1,5 +1,5 @@
 .Row {
-  height: 70vh;
+  height: 60vh;
   margin: 60px auto;
 }
 
@@ -94,17 +94,26 @@
 }
 
 /* Media Q*/
-/* @media only screen and (min-width: 769px) {
-    .Row {
-        max-width: auto;
-        margin: 20px auto;
-        padding: ;
-    }
-    .Content {
-        max-width: 50vw;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        padding: 10px;
-    }
-} */
+@media only screen and (max-width: 1440px) {
+  .HasErrors {
+    height: 75vh;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .HasErrors {
+    height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 348px) {
+  .Row {
+    height: 70vh;
+  }
+  .HasErrors {
+    height: 85vh;
+  }
+  .Submit {
+    margin-top: 12px;
+  }
+}
