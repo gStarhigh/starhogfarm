@@ -21,7 +21,6 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { AlertContext } from "../contexts/AlertContext";
 
@@ -59,25 +58,11 @@ const NavBar = () => {
   /* If a user is logged in */
   const loggedInIcons = (
     <>
+      <NavLink to="/" className={styles.NavLink}>
+        {currentUser?.username}
+      </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={confirmSignOut}>
         <i className="fas fa-sign-out-alt"></i>Logga ut
-      </NavLink>
-      <NavLink
-        to="/tickets"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="fa-regular fa-envelope"></i>Kontakt
-      </NavLink>
-      <NavLink
-        to={`/profiles/${currentUser?.profile_id}`}
-        className={styles.NavLink}
-      >
-        <Avatar
-          src={currentUser?.profile_image}
-          text={currentUser?.username}
-          height={40}
-        />
       </NavLink>
     </>
   );
@@ -146,6 +131,13 @@ const NavBar = () => {
               exact
             >
               <i class="fa-regular fa-calendar-days"></i>Evenemang
+            </NavLink>
+            <NavLink
+              to="/om-oss"
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+            >
+              <i className="fa-solid fa-question"></i>Om oss
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>

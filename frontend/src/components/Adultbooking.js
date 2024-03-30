@@ -172,7 +172,7 @@ const BookingForm = () => {
                   value={full_name}
                   onChange={handleChange}
                   maxLength={150}
-                  placeholder="Fullständingt namn"
+                  placeholder="Fullständigt namn"
                 />
                 {errors?.full_name?.map((message, idx) => (
                   <Alert variant="warning" key={idx}>

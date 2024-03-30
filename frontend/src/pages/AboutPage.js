@@ -40,10 +40,15 @@ function AboutPage() {
           <hr />
           <Row className="featurett">
             <Col md={7}>
-              <h3>Hedi</h3>
+              <h3>Gästtränare Heidi Vänttinen</h3>
               <p>
-                Heidi textHeidi textHeidi textHeidi textHeidi textHeidi
-                textHeidi text
+                Gästtränare Heidi Vänttinen, vars häst Kiera for U bor i
+                stallet, kommer från Finland, men bor i Skåne sedan 2015. I det
+                "civila" jobbar hon som språklärare på högstadiet. Heidi är
+                utbildad LA-domare samt ÖD i dressyr sedan 2018 och blev nyligen
+                godkänd ÖD även i WE. Hon har deltagit i bl.a. unghästchampionat
+                i Finland och Sverige, lag-FM och har tävlat t.o.m. Prix St
+                Georges.
               </p>
             </Col>
             <Col md={5}>

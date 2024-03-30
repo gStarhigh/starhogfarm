@@ -40,7 +40,7 @@ function Events() {
   };
 
   const event2 = {
-    headline: "Två dagars ridläger för ungdomar (ca 13-18år)",
+    headline: "Två dagars ridläger för ungdomar (13-18år)",
     date: "1 & 2 Juli 2024",
     infoList: [
       "2x Teorilektioner.",
