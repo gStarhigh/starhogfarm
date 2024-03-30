@@ -1,0 +1,24 @@
+.RideLessonsContainer {
+  text-align: center;
+  margin: 50px auto;
+  height: 50vh;
+}
+
+.HomeButton {
+  display: inline-block;
+  background-color: #2142b2;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.HomeButton:hover {
+  border: 1px solid #2142b2;
+  color: #2142b2;
+  background-color: white;
+}

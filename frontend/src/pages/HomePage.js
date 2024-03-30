@@ -71,7 +71,7 @@ function HomePage() {
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
-                <Link to="/lessons" className={styles.Link}>
+                <Link to="/ridlektioner" className={styles.Link}>
                   <FontAwesomeIcon
                     icon={faHorseHead}
                     className={styles.FontA}
