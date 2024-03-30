@@ -64,7 +64,6 @@ const BookingForm = () => {
       value = Array.from(e.target.selectedOptions, (option) => option.value);
     } else if (e.target.type === "checkbox") {
       value = e.target.checked;
-      // För agreement_accepted, uppdatera felmeddelandet baserat på användarens val
       if (!value) {
         setErrors((prevErrors) => ({
           ...prevErrors,
@@ -73,7 +72,7 @@ const BookingForm = () => {
       } else {
         setErrors((prevErrors) => ({
           ...prevErrors,
-          agreement_accepted: [], // Ta bort eventuella felmeddelanden
+          agreement_accepted: [],
         }));
       }
     } else {
@@ -88,7 +87,7 @@ const BookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newErrors = {}; // Skapa ett nytt objekt för att hålla reda på felen
+    const newErrors = {};
 
     // Kontrollera om avtalet har accepterats
     if (!agreement_accepted) {
@@ -120,7 +119,7 @@ const BookingForm = () => {
     }
 
     const templateParams = {
-      from_event: "Vuxen - 29/30 juli",
+      from_event: "Vuxen - 29/30 juni",
       from_name: formData.full_name,
       from_phone: formData.phone_number,
       from_email: formData.email,
@@ -159,9 +158,10 @@ const BookingForm = () => {
       <Col className={styles.SignUpCol}>
         <Col>
           <Container className={`${styles.Content} p-4 `}>
-            <Form onSubmit={handleSubmit}>
+            <h1 className={styles.Headline}>Evenemang den: 29&30 Juni</h1>
+            <Form onSubmit={handleSubmit} onReset={() => setFormData({})}>
               <Form.Group controlId="full_name">
-                <Form.Label>Fullständigt namn</Form.Label>
+                <Form.Label>Fullständigt namn *</Form.Label>
                 <Form.Control
                   type="text"
                   name="full_name"
@@ -178,7 +178,7 @@ const BookingForm = () => {
               </Form.Group>
 
               <Form.Group controlId="phone_number">
-                <Form.Label>Telefon nummer</Form.Label>
+                <Form.Label>Telefonnummer *</Form.Label>
                 <Form.Control
                   type="tel"
                   name="phone_number"
@@ -199,7 +199,7 @@ const BookingForm = () => {
               </Form.Group>
 
               <Form.Group controlId="email">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email *</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -215,7 +215,7 @@ const BookingForm = () => {
               </Form.Group>
 
               <Form.Group controlId="competition_level">
-                <Form.Label>Välj din tävlingsnivå</Form.Label>
+                <Form.Label>Välj din tävlingsnivå *</Form.Label>
                 <Form.Control
                   as="select"
                   name="competition_level"
@@ -243,7 +243,7 @@ const BookingForm = () => {
               {remainingSpots !== null && remainingSpots > 0 && (
                 <Form.Group controlId="wants_box_spot">
                   <Form.Label className={styles.Box}>
-                    Vill du ha en boxplats?
+                    Vill du ha en boxplats? *
                   </Form.Label>
                   <Form.Check
                     inline
@@ -313,7 +313,7 @@ const BookingForm = () => {
                   id="agreement_accepted"
                   checked={agreement_accepted}
                   onChange={handleChange}
-                  label="Jag har läst och godkänner avtalet."
+                  label="Jag har läst och godkänner avtalet. *"
                 />
                 {errors?.agreement_accepted?.map((message, idx) => (
                   <Alert variant="warning" key={idx}>
@@ -335,11 +335,10 @@ const BookingForm = () => {
                 </Modal.Header>
                 <Modal.Body>
                   <p>
-                    <strong>Handpenning:</strong> En handpenning om 20% av
-                    totalbeloppet måste betalas senast två veckor innan
-                    evenemanget börjar för att bekräfta din bokning. Utan
-                    fullständig betalning av handpenningen förloras din bokade
-                    plats.
+                    <strong>Handpenning:</strong> En handpenning om 500:- måste
+                    betalas senast två veckor innan evenemanget börjar för att
+                    bekräfta din bokning. Utan fullständig betalning av
+                    handpenningen förloras din bokade plats.
                   </p>
                   <p>
                     <strong>Återbetalning:</strong> Om handpenningen betalas men
@@ -359,6 +358,10 @@ const BookingForm = () => {
                     rätten att göra ändringar i evenemangsupplägget, tider eller
                     andra detaljer om det behövs för att säkerställa
                     evenemangets kvalitet och säkerhet.
+                  </p>
+                  <p>
+                    <strong>Slutgiltig betalning:</strong> En vecka innan
+                    kursstart mejlar vi ut mer information samt slutfaktura.
                   </p>
                   <p>
                     Genom att boka din plats och betala handpenningen godkänner

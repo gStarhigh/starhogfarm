@@ -1,0 +1,110 @@
+.Row {
+  height: 70vh;
+  margin: 60px auto;
+}
+
+.Input {
+  background: #ffffff;
+  border: 1px solid #f0f1f9;
+  box-sizing: border-box;
+  border-radius: 15px;
+  color: #7177a1;
+  text-align: center;
+  padding: 10px;
+}
+
+.Header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.Link span {
+  color: #f1e0c5;
+}
+
+.Container {
+  padding: 30px 10px;
+  margin: auto;
+}
+
+.Content {
+  background-color: #aebea7;
+  border-radius: 20px;
+  padding: 20px;
+  margin: auto;
+}
+
+.Box {
+  margin-right: 10px;
+}
+
+.Agreement {
+  font-weight: lighter;
+  font-size: smaller;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.Cancel {
+  background-color: #968e85;
+  padding: 5px;
+  border: 2px solid #968e85;
+  border-radius: 20px;
+  color: white;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.Cancel:hover {
+  color: #968e85;
+  background-color: white;
+}
+
+.Submit {
+  background-color: #2142b2;
+  padding: 5px;
+  border: 2px solid #2142b2;
+  border-radius: 20px;
+  color: white;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.Submit:hover {
+  color: #2142b2;
+  background-color: white;
+}
+
+.Headline {
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Media Q*/
+/* @media only screen and (min-width: 769px) {
+    .Row {
+        max-width: auto;
+        margin: 20px auto;
+        padding: ;
+    }
+    .Content {
+        max-width: 50vw;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 10px;
+    }
+} */

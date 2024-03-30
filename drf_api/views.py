@@ -1,9 +1,17 @@
 from rest_framework.decorators import api_view
+import os
 from rest_framework.response import Response
 from .settings import (
     JWT_AUTH_COOKIE, JWT_AUTH_REFRESH_COOKIE, JWT_AUTH_SAMESITE,
     JWT_AUTH_SECURE,
 )
+from django.http import JsonResponse
+
+
+def get_google_maps_api_key(request):
+    google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    return JsonResponse({"google_maps_api_key": google_maps_api_key})
+
 
 
 @api_view()

@@ -73,7 +73,7 @@ const SignUpForm = () => {
         <Container className={`${styles.Content} p-4 `}>
           <h1 className={styles.Header}>Skapa Konto</h1>
           <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="username">
+            <Form.Group controlId="username">
               <Form.Label>Användarnamn*</Form.Label>
               <Form.Control
                 className={styles.Input}
@@ -107,7 +107,7 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-              <Form.Group controlId="lastName">
+            <Form.Group controlId="lastName">
               <Form.Label>Efternamn</Form.Label>
               <Form.Control
                 className={styles.Input}
@@ -125,11 +125,11 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password1">
-              <Form.Label>Password*</Form.Label>
+              <Form.Label>Lösenord*</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
-                placeholder="Password"
+                placeholder="Lösenord"
                 name="password1"
                 value={password1}
                 onChange={handleChange}
@@ -141,11 +141,11 @@ const SignUpForm = () => {
               </Alert>
             ))}
             <Form.Group controlId="password2">
-              <Form.Label>Confirm Password*</Form.Label>
+              <Form.Label>Bekräfta lösenord*</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Bekräfta lösenord"
                 name="password2"
                 value={password2}
                 onChange={handleChange}

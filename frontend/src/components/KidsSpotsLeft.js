@@ -8,7 +8,6 @@ const KidsSpotsLeft = () => {
     const fetchRemainingSpots = async () => {
       try {
         const response = await axios.get("/available_spots_kids/");
-        console.log("Response data:", response.data);
         setRemainingSpots(response.data.available_spots_kids);
       } catch (error) {
         console.error("Error fetching remaining spots:", error);

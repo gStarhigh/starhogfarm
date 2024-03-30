@@ -1,28 +1,107 @@
-.Fixed {
-    bottom: 0;
-    background-color: #8b9d83;
-    height: 140px;
-    width: 100%;
-    padding-top: 50px;
+.Footer {
+  padding: 2rem 0;
+  margin-top: 5rem;
+  background-color: #8b9d83;
+}
+
+.footerIcons a {
+  margin: 0 0.5rem;
+  border-radius: none;
+}
+
+.footerIcons a:hover {
+  color: #fff;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.Footer h5 {
+  color: rgb(221, 73, 5);
+  margin-bottom: 12px;
+}
+
+.ft2 {
+  margin: 0 5rem;
+}
+
+.ft2 ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ft2 ul li {
+  padding: 0.35rem 0;
+  font-weight: 500;
+}
+
+.ft2 ul a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.06rem;
+}
+
+.ft3 p {
+  font-weight: 500;
+  padding: 0.1rem 0;
+  font-size: 1.06rem;
+}
+
+.ft3 i {
+  padding-right: 0.5rem;
+}
+
+.Links:hover {
+  color: white;
+}
+
+.Mail {
+  text-decoration: none;
+  color: inherit;
+}
+.Mail:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.SocialFbIcon {
+  font-size: 2em;
+}
+
+.SocialInstaIcon {
+  font-size: 2em;
+  color: rgb(255, 81, 0);
+}
+
+.SocialInstaIcon:hover {
+  color: whitesmoke;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.Rights {
+  margin-top: 12px;
+  text-align: right;
+  text-transform: capitalize;
+  font-style: italic;
+  font-size: smaller;
+  margin: 0 8rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .Rights {
+    margin: 0 5rem;
   }
-  
-  .Navlinks {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+}
+
+@media only screen and (max-width: 991px) {
+  .footerIcons {
+    margin-bottom: 24px;
   }
-  
-  @media only screen and (max-width: 991px) {
-    .Navlinks {
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-    }
-    .LogoText {
-      display: none;
-    }
-    .Logo {
-      margin: 0px 20px;
-    }
+  .Rights {
+    text-align: left;
+    margin: 12px 0px 0px 0px;
   }
+  .ft2 {
+    margin: 0;
+  }
+}

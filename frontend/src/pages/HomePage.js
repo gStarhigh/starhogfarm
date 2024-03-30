@@ -71,21 +71,30 @@ function HomePage() {
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
-                <FontAwesomeIcon icon={faHorseHead} className={styles.FontA} />
-                <h2 className="text-2xl font-bold">Boka ridlektion</h2>
-                <p className="text-muted">Boka ridlektion för Maria Starhög.</p>
+                <Link to="/lessons" className={styles.Link}>
+                  <FontAwesomeIcon
+                    icon={faHorseHead}
+                    className={styles.FontA}
+                  />
+                  <h2 className="text-2xl font-bold">Boka ridlektion</h2>
+                  <p className="text-muted">
+                    Boka ridlektion för Maria Starhög.
+                  </p>
+                </Link>
               </div>
             </Col>
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
-                <FontAwesomeIcon
-                  icon={faAddressCard}
-                  className={styles.FontA}
-                />
-                <h2 className="text-2xl font-bold">Kontakta oss</h2>
-                <p className="text-muted">
-                  Kontakta oss vid frågor eller funderingar.
-                </p>
+                <Link to="/kontakt" className={styles.Link}>
+                  <FontAwesomeIcon
+                    icon={faAddressCard}
+                    className={styles.FontA}
+                  />
+                  <h2 className="text-2xl font-bold">Kontakta oss</h2>
+                  <p className="text-muted">
+                    Kontakta oss vid frågor eller funderingar.
+                  </p>
+                </Link>
               </div>
             </Col>
           </Row>

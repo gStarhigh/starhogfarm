@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/AdultEvent1.module.css";
 
-function AdultEvent1() {
+function KidsEvent() {
   const event = {
     headline: "2 dagars Teori & Lektioner",
-    date: "29 & 30 Juni 2024",
+    date: "1 & 2 Juli 2024",
     schedule: [
       {
         day: 1,
@@ -17,14 +17,13 @@ function AdultEvent1() {
           { name: "Lunch.", description: "" },
           {
             name: "Teorilektion",
-            description: "Ryttarens sists och inverkan.",
+            description: "Praktisk hästkunskap.",
           },
           { name: "Fika.", description: "" },
           {
             name: "Teorilektion.",
             description: "Ur domarens synvinkel.",
           },
-          { name: "Middag.", description: "" },
         ],
       },
       {
@@ -43,7 +42,7 @@ function AdultEvent1() {
         ],
       },
     ],
-    link: "/vuxna/event",
+    link: "/ungdomar/event",
     imageUrl:
       "https://res.cloudinary.com/draygqe7t/image/upload/v1691502265/123444577_184051683261535_824802158311214574_n_yjw2zu.jpg",
   };
@@ -71,7 +70,7 @@ function AdultEvent1() {
           </div>
         ))}
       </div>
-      <p className={styles.Center}>Pris: 2600:- ink.moms.</p>
+      <p className={styles.Center}>Pris: 2300:- ink.moms.</p>
       <p className={styles.Center}>
         Max 5 boxplatser (Halm) finns att hyra för 300:- extra.
       </p>
@@ -85,4 +84,4 @@ function AdultEvent1() {
   );
 }
 
-export default AdultEvent1;
+export default KidsEvent;

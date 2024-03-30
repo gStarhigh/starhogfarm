@@ -1,0 +1,33 @@
+.AboutSection {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.AboutHeadline {
+  font-size: 2rem;
+}
+
+.about-main {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.col-md-5 img {
+  width: 100%;
+}
+
+.AboutImg {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.MapPin i {
+  font-size: 2em;
+  color: red;
+}
+
+.Map {
+  height: 50vh;
+  width: 90%;
+  margin: auto;
+}

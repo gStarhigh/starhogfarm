@@ -79,14 +79,14 @@ function SignInForm() {
       </Col>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${styles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign in</h1>
+          <h1 className={styles.Header}>logga in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Användarnamn</Form.Label>
               <Form.Control
                 type="text"
                 name="username"
-                placeholder="Enter Username"
+                placeholder="Fyll i användarnamn"
                 className={styles.Input}
                 value={username}
                 onChange={handleChange}
@@ -100,10 +100,10 @@ function SignInForm() {
             ))}
 
             <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Lösenord</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder="Lösenord"
                 name="password"
                 className={styles.Input}
                 value={password}
@@ -125,7 +125,7 @@ function SignInForm() {
           </Form>
           <div className={`mt-3 ${styles.Content}`}>
             <Link className={styles.Link} to="/signup">
-              Don't have an account? <span>Sign up now!</span>
+              Inget konto? <span>Skapa ett nu!</span>
             </Link>
           </div>
         </Container>

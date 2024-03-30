@@ -1,94 +1,106 @@
 .Hero {
-    position: relative;
-    height: 80vh;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  
-  .HeroImage {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    object-position: center;
-    
-  }
-  
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.HeroImage {
+  width: auto;
+  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.HeroText {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.HeroH2 {
+  font-size: 8vw;
+  font-weight: 900;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.HeroButton {
+  display: block;
+  margin: 20px auto;
+  background-color: #8b9d83;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.FontHorse {
+  font-size: 8rem;
+  margin: auto;
+}
+
+.Row {
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.Welcome {
+  padding: 40px;
+  text-align: center;
+}
+
+.FontA {
+  font-size: 4rem;
+  margin: 5px;
+  color: #8b9d83;
+}
+
+.Cards {
+  cursor: pointer;
+}
+
+.Copy {
+  text-align: center;
+  font-size: 12px;
+}
+
+.Padding {
+  padding: 0;
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
+}
+
+.Link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
   .HeroText {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
+    top: 40%;
   }
-  
   .HeroH2 {
-    font-size: 10vw;
-    font-weight: 900;
-    margin-bottom: 40px;
-    text-transform: uppercase;
+    margin-bottom: 50px;
+    font-size: 12vw;
   }
-  
-  .HeroButton {
-    display: block;
-    margin: 20px auto;
-    background-color: #8b9d83;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    text-transform: uppercase;
+}
+@media only screen and (max-width: 420px) {
+  .HeroText {
+    top: 40%;
   }
-  
-  .FontHorse {
-    font-size: 8rem;
-    margin: auto;
+  .HeroH2 {
+    margin-bottom: 100px;
   }
-  
-  .Row {
-    justify-content: center;
-    display: flex;
-    margin: auto;
-    padding-top: 20px;
-  }
-  
-  .Welcome {
-    padding: 40px;
-    text-align: center;
-  }
-  
-  .FontA {
-    font-size: 4rem;
-    margin: 5px;
-    color: #8b9d83;
-  }
-  
-  .Cards {
-    cursor: pointer;
-  }
-  
-  .Copy {
-    text-align: center;
-    font-size: 12px;
-  }
-
-  .Padding {
-    padding: 0;
-  }
-
-  .Link {
-    text-decoration: none;
-    color: black;
-    
-  }
-
-  .Link:hover {
-    text-decoration: none;
-    color: black;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .HeroText {
-      top: 40%;
-    }
-  }
+}

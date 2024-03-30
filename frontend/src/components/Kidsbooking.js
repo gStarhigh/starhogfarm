@@ -1,18 +1,26 @@
+// React
 import React, { useState, useContext, useEffect } from "react";
-import { Form } from "react-bootstrap";
-import { Modal } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { axiosReq } from "../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
-import KidsSpotsLeft from "./KidsSpotsLeft";
-import { AlertContext } from "../contexts/AlertContext";
-import Alert from "react-bootstrap/Alert";
 
+// Bootstrap
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import { Form } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
+// EmailJS
+import emailjs from "emailjs-com";
+
+// Styles
 import styles from "../styles/AdultBooking.module.css";
+
+// Imports
+import { axiosReq } from "../api/axiosDefaults";
+import { AlertContext } from "../contexts/AlertContext";
+import KidsSpotsLeft from "./KidsSpotsLeft";
 
 const BookingForm = () => {
   const [errors, setErrors] = useState({});
@@ -28,6 +36,10 @@ const BookingForm = () => {
     wants_box_spot: 0,
   });
   const [remainingSpots, setRemainingSpots] = useState(null);
+
+  // email js
+  const serviceID = "service_bp6z8w3";
+  const templateID = "event_created";
 
   useEffect(() => {
     const fetchRemainingSpots = async () => {
@@ -58,6 +70,17 @@ const BookingForm = () => {
       value = Array.from(e.target.selectedOptions, (option) => option.value);
     } else if (e.target.type === "checkbox") {
       value = e.target.checked;
+      if (!value) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          agreement_accepted: ["Du måste acceptera avtalet för att fortsätta."],
+        }));
+      } else {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          agreement_accepted: [],
+        }));
+      }
     } else {
       value = e.target.value;
     }
@@ -69,37 +92,44 @@ const BookingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const missingFields = [];
+    const newErrors = {};
 
-    // Validate each field and add error messages to the list
+    // Kontrollera om avtalet har accepterats
+    if (!agreement_accepted) {
+      newErrors.agreement_accepted = [
+        "Du måste acceptera avtalet för att boka.",
+      ];
+    }
+
+    // Kontrollera de andra fälten och sätt felmeddelanden om de är tomma
     if (!full_name) {
-      missingFields.push("Fullständigt namn");
+      newErrors.full_name = ["Detta fält kan ej vara tomt."];
     }
     if (!phone_number) {
-      missingFields.push("Telefonnummer");
+      newErrors.phone_number = ["Detta fält kan ej vara tomt."];
     }
     if (!email) {
-      missingFields.push("E-postadress");
+      newErrors.email = ["Detta fält kan ej vara tomt."];
     }
     if (!competition_level) {
-      missingFields.push("Tävlingsnivå");
+      newErrors.competition_level = ["Detta fält kan ej vara tomt."];
     }
-    if (!additional_info) {
-      missingFields.push("Informationstext");
-    }
-    if (!agreement_accepted) {
-      missingFields.push("Godkänna Avtalet");
-    }
-    if (!agreement_accepted) {
-      missingFields.push("Boxplats");
-    }
+    // Sätt de nya felen i errors-objektet
+    setErrors(newErrors);
 
-    // If there are missing fields, show error messages
-    if (missingFields.length > 0) {
-      const errorMessage = `Följande fält saknas: ${missingFields.join(", ")}`;
-      setAlert(errorMessage);
+    // Om det finns några fel, avbryt och visa dem
+    if (Object.keys(newErrors).length > 0) {
       return;
     }
+
+    const templateParams = {
+      from_event: "Ungdomar - 1/2 juli",
+      from_name: formData.full_name,
+      from_phone: formData.phone_number,
+      from_email: formData.email,
+      from_info: formData.additional_info,
+      from_box: formData.wants_box_spot,
+    };
 
     // Send a POST request to your Django backend
     try {
@@ -108,6 +138,13 @@ const BookingForm = () => {
       setAlert(
         "Tack för din bokning! Du får snart ett bekräftelsemejl till email addressen du angav."
       );
+      await emailjs.send(
+        serviceID,
+        templateID,
+        templateParams,
+        "xWnNr7v5p2qYNDBZo"
+      );
+
       history.push("/");
     } catch (errors) {
       if (errors.response?.status !== 401) {
@@ -125,9 +162,10 @@ const BookingForm = () => {
       <Col className={styles.SignUpCol}>
         <Col>
           <Container className={`${styles.Content} p-4 `}>
-            <Form onSubmit={handleSubmit}>
+            <h1 className={styles.Headline}>Evenemang den: 1&2 Juli</h1>
+            <Form onSubmit={handleSubmit} onReset={() => setFormData({})}>
               <Form.Group controlId="full_name">
-                <Form.Label>Fullständigt namn</Form.Label>
+                <Form.Label>Fullständigt namn *</Form.Label>
                 <Form.Control
                   type="text"
                   name="full_name"
@@ -144,7 +182,7 @@ const BookingForm = () => {
               ))}
 
               <Form.Group controlId="phone_number">
-                <Form.Label>Telefon nummer</Form.Label>
+                <Form.Label>Telefonnummer *</Form.Label>
                 <Form.Control
                   type="tel"
                   name="phone_number"
@@ -155,7 +193,7 @@ const BookingForm = () => {
                       event.preventDefault();
                     }
                   }}
-                  placeholder="Förnamn"
+                  placeholder="Telefonnummer"
                 />
               </Form.Group>
               {errors?.phone_number?.map((message, idx) => (
@@ -165,7 +203,7 @@ const BookingForm = () => {
               ))}
 
               <Form.Group controlId="email">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email *</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -181,7 +219,7 @@ const BookingForm = () => {
               ))}
 
               <Form.Group controlId="competition_level">
-                <Form.Label>Välj din tävlingsnivå</Form.Label>
+                <Form.Label>Välj din tävlingsnivå *</Form.Label>
                 <Form.Control
                   as="select"
                   name="competition_level"
@@ -208,7 +246,9 @@ const BookingForm = () => {
               {/* Render the radio button only if there are remaining spots */}
               {remainingSpots !== null && remainingSpots > 0 && (
                 <Form.Group controlId="wants_box_spot">
-                  <Form.Label>Vill du ha en boxplats?</Form.Label>
+                  <Form.Label className={styles.Box}>
+                    Vill du ha en boxplats? *
+                  </Form.Label>
                   <Form.Check
                     inline
                     type="radio"
@@ -278,7 +318,7 @@ const BookingForm = () => {
                   id="agreement_accepted"
                   checked={agreement_accepted}
                   onChange={handleChange}
-                  label="Jag har läst och godkänner avtalet."
+                  label="Jag har läst och godkänner avtalet. *"
                 />
               </Form.Group>
               {errors?.agreement_accepted?.map((message, idx) => (
@@ -286,8 +326,12 @@ const BookingForm = () => {
                   {message}
                 </Alert>
               ))}
-              <button type="reset">Avbryt</button>
-              <button type="submit">Boka</button>
+              <button className={styles.Cancel} type="reset">
+                Avbryt
+              </button>
+              <button className={styles.Submit} type="submit">
+                Boka
+              </button>
 
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -319,6 +363,10 @@ const BookingForm = () => {
                     rätten att göra ändringar i evenemangsupplägget, tider eller
                     andra detaljer om det behövs för att säkerställa
                     evenemangets kvalitet och säkerhet.
+                  </p>
+                  <p>
+                    <strong>Slutgiltig betalning:</strong> En vecka innan
+                    kursstart mejlar vi ut mer information samt slutfaktura.
                   </p>
                   <p>
                     Genom att boka din plats och betala handpenningen godkänner
