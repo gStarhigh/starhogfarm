@@ -53,7 +53,7 @@ function AboutPage() {
             </Col>
             <Col md={5}>
               <img
-                src="https://res.cloudinary.com/draygqe7t/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1691487115/received_172611130713732_wmhpdd.jpg"
+                src="https://res.cloudinary.com/draygqe7t/image/upload/v1711873942/58f75095-5c63-4e56-a882-6a14483dcd3a_qdx4w3.jpg"
                 alt=""
                 className={styles.AboutImg}
               />
