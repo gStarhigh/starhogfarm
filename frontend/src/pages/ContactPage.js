@@ -186,7 +186,7 @@ function Contact() {
                 Avbryt
               </button>
               <button className={styles.Submit} type="submit">
-                Boka
+                Skicka
               </button>
             </Form>
           </Container>

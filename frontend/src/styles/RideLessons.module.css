@@ -1,24 +1,63 @@
+.Main {
+  height: 50vh;
+  width: fit-content;
+  margin: auto;
+}
+
 .RideLessonsContainer {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  background-color: #aebea7;
   text-align: center;
   margin: 50px auto;
-  height: 50vh;
+  max-height: 90vh;
+  max-width: 90vw;
+  border-radius: 10px;
+}
+
+.RideLessonsContainer h1 {
+  font-size: 2rem;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+.RideLessonsContainer p {
+  font-size: 1.1rem;
+  margin-bottom: 0px;
+  padding: 20px;
+}
+
+.ContactInfo p {
+  font-size: 1rem;
+}
+
+.ButtonsContainer {
+  margin-top: 10px;
 }
 
 .HomeButton {
   display: inline-block;
-  background-color: #2142b2;
+  margin: 20px auto;
+  background-color: #8b9d83;
   color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 18px;
+  padding: 15px 20px;
   border: none;
-  cursor: pointer;
-  margin-top: 20px;
+  border-radius: 10px;
+  text-transform: uppercase;
 }
 
 .HomeButton:hover {
-  border: 1px solid #2142b2;
-  color: #2142b2;
+  color: #8b9d83;
   background-color: white;
+  text-decoration: none;
+}
+
+.Mail {
+  text-decoration: none;
+  color: inherit;
+}
+.Mail:hover {
+  text-decoration: none;
+  color: white;
 }

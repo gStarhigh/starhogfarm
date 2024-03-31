@@ -13,7 +13,7 @@ import {
 import styles from "../styles/Footer.module.css";
 
 function Footer() {
-  const emailAddress = "starhog.gard@gmail.com";
+  const emailAddress = "maria@starhoggard.se";
   const address = " Öja 4683, Klippan, Sverige";
   const instagram =
     "https://www.instagram.com/mariafragrant?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
@@ -72,7 +72,7 @@ function Footer() {
                 </p>
                 <p>
                   <a className={styles.Mail} href={`mailto:${emailAddress}`}>
-                    <FaEnvelope /> starhog.gard@gmail.com
+                    <FaEnvelope /> maria@starhoggard.se
                   </a>
                 </p>
                 <p>

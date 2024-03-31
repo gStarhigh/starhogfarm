@@ -74,13 +74,9 @@ ALLOWED_HOSTS = [
     'localhost',
     'starhogfarm-b9a36b032f73.herokuapp.com',
     'starhoggard.se',
-    'https://www.starhoggard.se',
-    'http://www.starhoggard.se',
     'www.starhoggard.se',
-    'starhöggård.se',
-    'www.starhöggård.se',
-    'xn--starhggrd-c3a8p.se',
-    'www.xn--starhggrd-c3a8p.se',
+    'http://www.starhoggard.se',
+    'https://www.starhoggard.se',
 ]
 
 
