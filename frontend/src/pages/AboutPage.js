@@ -97,9 +97,9 @@ function AboutPage() {
                 njuta av detta hästparadis, men oavsett om det är en lång sommar
                 eller en kortare en så får de utmärkt grundträning i våra
                 härliga backar.
-                <hr />
-                <strong>Inget bete 2024 pga upprustning.</strong>
               </p>
+              <hr />
+              <strong>Inget bete 2024 pga upprustning.</strong>
             </Col>
             <Col md={5}>
               <img
