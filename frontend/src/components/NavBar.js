@@ -23,6 +23,7 @@ import {
 } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { AlertContext } from "../contexts/AlertContext";
+import { removeTokenTimestamp } from "../utils/utils";
 
 // Toastify Imports
 import { toast } from "react-toastify";
@@ -30,7 +31,6 @@ import { ToastContainer } from "react-toastify";
 
 // Toastify style
 import "react-toastify/dist/ReactToastify.css";
-import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
