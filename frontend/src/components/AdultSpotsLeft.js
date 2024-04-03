@@ -13,7 +13,6 @@ const AdultSpotsLeft = () => {
     const fetchRemainingSpots = async () => {
       try {
         const response = await axios.get("/available_spots_adult/");
-        console.log("Response data:", response.data);
         setRemainingSpots(response.data.available_spots_adult);
         setLoading(false);
       } catch (error) {
