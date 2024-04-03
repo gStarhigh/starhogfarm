@@ -343,11 +343,10 @@ const BookingForm = () => {
                 </Modal.Header>
                 <Modal.Body>
                   <p>
-                    <strong>Handpenning:</strong> En handpenning om 20% av
-                    totalbeloppet måste betalas senast två veckor innan
-                    evenemanget börjar för att bekräfta din bokning. Utan
-                    fullständig betalning av handpenningen förloras din bokade
-                    plats.
+                    <strong>Handpenning:</strong> En handpenning om 500:- måste
+                    betalas senast två veckor innan evenemanget börjar för att
+                    bekräfta din bokning. Utan fullständig betalning av
+                    handpenningen förloras din bokade plats.
                   </p>
                   <p>
                     <strong>Återbetalning:</strong> Om handpenningen betalas men
