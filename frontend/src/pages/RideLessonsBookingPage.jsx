@@ -28,7 +28,6 @@ const BookingPage = () => {
       { time: '20:00-20:45', info: 'Familjetid' },
       { time: '21:00-21:45', info: 'Privatlektion' }
     ];
-
     setAvailableTimes(AvailableTimes);
   };
 
