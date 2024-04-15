@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+}
+
+.calendarContainer {
+  flex: 1;
+  margin: 0 40px;
+  max-width: 20vw;
+}
+
+.availableTimesContainer {
+  flex: 1;
+  margin: 0 80px;
+  max-width: 80vw;
+}
+
+.bookingButtonContainer {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bookingButtonContainer button {
+  flex: 1;
+}
+
+.cancelButton {
+  margin-right: 20px;
+  padding: 10px 20px;
+  background-color: grey;
+  color: #ffffff;
+  border: solid 1px grey;
+  border-radius: 40px;
+}
+
+.cancelButton:hover {
+  color: grey;
+  background-color: #ffffff;
+  border: solid 1px grey;
+}
+
+.ConfirmButton {
+  background-color: #2142b2;
+  color: #ffffff;
+  border: 1px solid #2142b2;
+  padding: 10px 25px;
+  border-radius: 40px;
+}
+
+.ConfirmButton:hover {
+  border: 1px solid #2142b2;
+  background-color: #ffffff;
+  padding: 10px 25px;
+  color: #2142b2;
+  border-radius: 40px;
+}
+
+.ListItems {
+  list-style-type: none;
+  margin-left: -40px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.ListItems li {
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.selectedTime {
+  background-color: grey;
+  color: #ffffff;
+  border: solid 1px #ffffff;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+  .ListItems {
+    margin-right: 80px;
+  }
+}

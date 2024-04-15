@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import BookingPage from "./RideLessonsBookingPage";
 
 import { FaPhoneVolume, FaEnvelope } from "react-icons/fa";
 
@@ -13,7 +14,7 @@ function RideLessons() {
       <div className={styles.RideLessonsContainer}>
         <h1>Våra ridlektioner!</h1>
         <p>
-          <strong>Sidan är under konstruktion</strong>, men du kan fortfarande
+          <strong>Sidan är under konstruktion</strong> men du kan fortfarande
           kontakta oss genom mejl eller telefon!
         </p>
         <div className={styles.ContactInfo}>
@@ -33,6 +34,7 @@ function RideLessons() {
         </div>
       </div>
     </div>
+    // <BookingPage />
   );
 }
 
