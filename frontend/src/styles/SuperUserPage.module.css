@@ -1,0 +1,24 @@
+.bookingItem {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.eventBookings {
+  justify-content: space-around;
+}
+
+.bookingInfo {
+  margin-right: 10px;
+}
+
+.adulEventBookings,
+.kidsEventBookings {
+  flex-basis: 45%;
+}
+
+.adulEventBookings h4,
+.kidsEventBookings h4 {
+  margin-bottom: 10px;
+}

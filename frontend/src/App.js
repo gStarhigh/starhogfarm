@@ -28,6 +28,7 @@ import KidsEvent1 from "./components/Kidsbooking";
 import KidsEvent from "./pages/KidsEvent1";
 import Contact from "./pages/ContactPage";
 import RideLessons from "./pages/RideLessons";
+import SuperUserPage from "./pages/SuperUserPage";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="/ungdomar/event" render={() => <KidsEvent1 />} />
             <Route exact path="/kontakt" render={() => <Contact />} />
             <Route exact path="/ridlektioner" render={() => <RideLessons />} />
+            <Route exact path="/bokningar" render={() => <SuperUserPage />} />
 
             <PrivateRoute
               exact

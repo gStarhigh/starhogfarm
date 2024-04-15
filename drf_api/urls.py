@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import logout_route, get_google_maps_api_key
+from .views import logout_route, get_google_maps_api_key, get_current_user
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -31,5 +31,6 @@ urlpatterns = [
     path('api/', include('information.urls')),
     path('api/', include('events.urls')),
     path('api/google-maps-api-key/', get_google_maps_api_key, name='get_google_maps_api_key'),
+    path('api/get_current_user/', get_current_user, name='get_current_user'),
 ]
 handler404 = TemplateView.as_view(template_name='index.html')

@@ -6,6 +6,17 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 from django.http import JsonResponse
+from .serializers import CurrentUserSerializer
+from django.contrib.auth.models import User
+
+
+@api_view(['GET'])
+def get_current_user(request):
+    user = request.user
+
+    serializer = CurrentUserSerializer(user)
+
+    return Response(serializer.data)
 
 
 def get_google_maps_api_key(request):

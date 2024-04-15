@@ -73,3 +73,21 @@ class KidsAvailableSpotsView(APIView):
         except Exception as e:
             # Hantera eventuella fel som uppstår under beräkningen
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+class BookingListView(APIView):
+    def get(self, request):
+        adult_events = AdultEvent.objects.all()
+        kids_events = KidsEvent.objects.all()
+
+        adult_bookings = []
+        kids_bookings = []
+
+        for event in adult_events:
+            serializer = AdultEventSerializer(event)
+            adult_bookings.append(serializer.data)
+
+        for event in kids_events:
+            serializer = KidsEventSerializer(event)
+            kids_bookings.append(serializer.data)
+
+        return Response({"adult_events": adult_bookings, "kids_events": kids_bookings})
