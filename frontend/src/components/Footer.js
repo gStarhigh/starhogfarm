@@ -41,11 +41,11 @@ function Footer() {
               <div className={styles.ft2}>
                 <h5>Länkar</h5>
                 <ul>
-                  <li>
+                  {/* <li>
                     <Link to={"/events"} className={styles.Links}>
                       Evenemang
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="">
                     <Link to={"/ridlektioner"} className={styles.Links}>
                       Ridlektioner

@@ -28,8 +28,8 @@ function HomePage() {
           ></img>
           <div className={styles.HeroText}>
             <h1 className={styles.HeroH2}>Starhög {"\n"}Gård</h1>
-            <Link to="/events" className={styles.Link}>
-              <button className={styles.HeroButton}>Evenemang</button>
+            <Link to="/ridlektioner" className={styles.Link}>
+              <button className={styles.HeroButton}>Ridlektioner</button>
             </Link>
           </div>
         </div>
@@ -55,7 +55,7 @@ function HomePage() {
       <section className="py-5 py-md-5 py-lg-5">
         <Container className={styles.Padding}>
           <Row className="justify-content-center">
-            <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
+            {/* <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
                 <Link to="/events" className={styles.Link}>
                   <FontAwesomeIcon
@@ -68,7 +68,7 @@ function HomePage() {
                   </p>
                 </Link>
               </div>
-            </Col>
+            </Col> */}
             <Col xs={12} sm={6} md={4} className={`${styles.Cards} mb-3`}>
               <div className="d-flex flex-column align-items-center text-center">
                 <Link to="/ridlektioner" className={styles.Link}>

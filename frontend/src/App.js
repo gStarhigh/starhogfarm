@@ -55,11 +55,11 @@ function App() {
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/" render={() => <HomePage />} />
             <Route exact path="/om-oss" render={() => <AboutPage />} />
-            <Route exact path="/events" render={() => <Events />} />
-            <Route exact path="/vuxna" render={() => <AdultEvent1 />} />
+            {/* <Route exact path="/events" render={() => <Events />} /> */}
+            {/* <Route exact path="/vuxna" render={() => <AdultEvent1 />} />
             <Route exact path="/vuxna/event" render={() => <BookingForm />} />
             <Route exact path="/ungdomar" render={() => <KidsEvent />} />
-            <Route exact path="/ungdomar/event" render={() => <KidsEvent1 />} />
+            <Route exact path="/ungdomar/event" render={() => <KidsEvent1 />} /> */}
             <Route exact path="/kontakt" render={() => <Contact />} />
             <Route exact path="/ridlektioner" render={() => <RideLessons />} />
 

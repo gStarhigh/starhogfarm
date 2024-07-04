@@ -124,14 +124,14 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i>Hem
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/events"
               className={styles.NavLink}
               activeClassName={styles.Active}
               exact
             >
               <i class="fa-regular fa-calendar-days"></i>Evenemang
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/om-oss"
               className={styles.NavLink}
